@@ -1,0 +1,54 @@
+services:
+  - type: web
+    name: tablekeeper-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    autoDeployTrigger: commit
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: sh /app/container/render-entrypoint.sh
+    healthCheckPath: /
+    envVars:
+      - key: TK_RENDER_DATABASE_URL
+        fromDatabase:
+          name: tablekeeper-render-db
+          property: connectionString
+      - key: TK_RUNTIME_DATABASE_PASSWORD
+        generateValue: true
+      - key: RESERVATION_CORE_CONFIRMATION_SECRET
+        generateValue: true
+      - key: RESERVATION_CORE_DEV_BEARER_TOKEN
+        generateValue: true
+      - key: RESERVATION_CORE_MANAGER_BEARER_TOKEN
+        generateValue: true
+      - key: RESERVATION_CORE_TENANT_ID
+        value: 10000000-0000-4000-8000-000000000001
+      - key: RESERVATION_CORE_ACTOR_ID
+        value: render-demo-guest
+      - key: RESERVATION_CORE_ACTOR_TYPE
+        value: GUEST
+      - key: RESERVATION_CORE_MANAGER_ACTOR_ID
+        value: render-demo-manager
+      - key: RESERVATION_CORE_OPERATIONS_VENUE_ID
+        value: 10000000-0000-4000-8000-000000000012
+      - key: RESERVATION_CORE_BASE_URL
+        value: http://127.0.0.1:4180
+      - key: CONCIERGE_BASE_URL
+        value: http://127.0.0.1:4310
+      - key: CONCIERGE_LANGUAGE_PROVIDER
+        value: deterministic
+      - key: CONCIERGE_RETRIEVAL_PROVIDER
+        value: local
+      - key: TABLEKEEPER_STAFF_PIN
+        sync: false
+
+databases:
+  - name: tablekeeper-render-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "17"
+    databaseName: tablekeeper_render
+    user: tablekeeper_bootstrap
+    ipAllowList: []
