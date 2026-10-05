@@ -51,7 +51,7 @@ Judge-only disposable-stack PIN:
 
 The Compose project creates a dedicated `tablekeeper_judge` database in a Docker volume. Its fixed credentials and tokens are intentionally non-secret and valid only inside this disposable local stack. It does not read the Windows operator configuration and cannot address the retained `tablekeeper` demo database. Concierge is forced to deterministic and local providers.
 
-The Docker path has been statically prepared but runtime Docker validation has NOT yet been executed because Docker was unavailable on the preparation host.
+Runtime validation passed on Docker 29.8.1 with Docker Compose v5.5.1. `docker compose down --volumes` completed successfully, followed by `docker compose up --build --wait` from a clean disposable volume. `tablekeeper-judge-postgres-1` and `tablekeeper-judge-app-1` became healthy; host port 4173 served Tablekeeper, the Guest root returned HTTP 200, and the Staff path had previously returned HTTP 200. The Docker healthcheck authenticated its Reservation Core probe with the existing disposable-stack bearer token; authentication was not bypassed. Migration passed through `0004_venue_service_hours`, and fixture application passed with 1 tenant, 24 venues, 97 resources, 97 groups, 24 policies, and 158 `serviceHours`.
 
 Stop the stack while retaining its disposable database:
 
