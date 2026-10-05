@@ -6,15 +6,17 @@ Demo Video: https://youtu.be/baLmkZOIcbU
 
 Tablekeeper is an AI-powered dining platform for conversational restaurant discovery, authoritative reservations, and venue-scoped staff operations. Guests explore a canonical 24-venue catalog through the AI Concierge, then use the real reservation boundary to check availability, prepare, confirm, read, or cancel a booking. Confirmed experiences can include a Dining Pass and authoritative Dining Placement. Staff use a PIN-gated, venue-scoped Operations experience.
 
-## Built with BAND
+## Dark Factory Evidence
 
-Tablekeeper was produced through a BAND-based agentic software factory with distinct architecture, implementation, coordination, and independent verification responsibilities. Specialist agents hand work off with evidence, and implementation is separated from certification. Human stage dispatch and review remain part of the observed process; this repository does not claim full autonomy.
+Tablekeeper's implementation agents did not certify their own work. Progression was controlled by evidence gates.
 
-See [FACTORY.md](FACTORY.md) for the verified factory evidence, limitations, and BAND evidence status.
+1. **C0 genuinely failed before acceptance.** Twelve harness/evidence defects were corrected, four failed attempts were retained, the result was independently reverified, and only then did the Coordinator record `ACCEPTED`.
+2. **Green checks were insufficient.** C1A remained `HOLD_PENDING_POSTGRESQL17_INTEGRATION_PASS` until real PostgreSQL 17 integration verification passed.
+3. **Product invariants were falsified under concurrency.** Fifty simultaneous confirmations produced one winner, 49 authoritative conflicts, zero HTTP 5xx responses, and zero overlapping active allocations.
 
-### BAND Agentic Factory
+Judge fast path: [Factory narrative](FACTORY.md) | [Factory Evidence Index](FACTORY-EVIDENCE-INDEX.md) | [human-observed BAND room evidence](band-export/BAND-EVIDENCE.md) | [concurrency proof](evidence/tablekeeper-concurrency-proof.md)
 
-The documented flow is Human -> Architect -> specialist implementation -> agent-to-agent handoff -> independent evidence verification -> Coordinator closure -> Human. Read [FACTORY.md](FACTORY.md) for the bounded factory account and [BAND-EVIDENCE.md](band-export/BAND-EVIDENCE.md) for the human-verifiable Coordinator room reference. The latter is not a native BAND room export.
+Human mission and stage dispatch, specialist implementation, independent verification, and Coordinator closure are distinct in the retained evidence. The BAND record is human-observed rather than a native platform export, and this repository does not claim full autonomy.
 
 ## System boundary
 
@@ -135,7 +137,8 @@ The preserved observed evidence is recorded in `evidence/tablekeeper-concurrency
 - `container/`, `Dockerfile`, and `compose.yaml` - clean disposable judge path
 - `evidence/` - preserved Engineering Proof
 - `architecture/` - accepted architecture-gate evidence
-- `FACTORY.md` - verified BAND engineering-factory account and export status
+- `FACTORY.md` - judge-facing Dark Factory narrative and evidence boundaries
+- `FACTORY-EVIDENCE-INDEX.md` - two-minute index linking Factory events to retained proof
 
 ## Security
 
@@ -147,4 +150,4 @@ The Docker judge credentials are deliberately public, local, and scoped to the d
 
 Project-authored code is offered under the root MIT license. Third-party packages, tools, container images, and assets retain their own licenses. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). A human submitter must confirm publication rights for all retained image assets before making the repository public.
 
-For the verified BAND workflow and remaining human export instructions, see [FACTORY.md](FACTORY.md).
+For the verified workflow, gate cases, and provenance boundaries, see [FACTORY.md](FACTORY.md).
