@@ -8,6 +8,21 @@ until pg_isready -d "$TK_RENDER_DATABASE_URL" >/dev/null 2>&1; do
   sleep 1
 done
 
+psql "$TK_RENDER_DATABASE_URL" --no-psqlrc --set ON_ERROR_STOP=1 <<'SQL'
+DO $bootstrap$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'reservation_core_migration') THEN
+    CREATE ROLE reservation_core_migration LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOREPLICATION NOBYPASSRLS;
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'core_runtime') THEN
+    CREATE ROLE core_runtime LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOREPLICATION NOBYPASSRLS;
+  END IF;
+END
+$bootstrap$;
+
+GRANT reservation_core_migration TO CURRENT_USER WITH INHERIT TRUE, SET TRUE;
+SQL
+
 contract_digest="$(sha256sum /app/contracts/releases/2.0.0/contract-registry.json | cut -d ' ' -f 1)"
 node /app/reservation-core/src/db/reservation-core.mjs migrate \
   --mode up \
