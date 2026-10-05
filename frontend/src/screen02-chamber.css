@@ -1,0 +1,327 @@
+.concierge-active #ask-form{box-sizing:border-box!important;padding:7px 9px!important;overflow:hidden!important}.concierge-active #ask-form>div{display:grid!important;grid-template-columns:54px minmax(0,1fr) 56px!important;align-items:center!important;gap:10px!important;width:100%!important;height:100%!important;min-width:0!important}.concierge-active #ask-form>div:before{grid-column:1;width:46px!important;height:46px!important;min-width:46px!important;margin:0!important;align-self:center}.concierge-active #ask{grid-column:2!important;display:block!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;height:auto!important;min-height:42px!important;max-height:68px!important;margin:0!important;padding:10px 4px!important;border:0!important;outline:0!important;background:transparent!important;color:#f4eee4!important;font:16px/1.45 Arial,sans-serif!important;resize:none!important;overflow-y:auto!important;scrollbar-width:none!important}.concierge-active #ask::-webkit-scrollbar{display:none!important}.concierge-active #ask::placeholder{color:#8f8a82!important;opacity:1}.concierge-active #ask-form button[type=submit]{grid-column:3!important;position:relative!important;inset:auto!important;display:grid!important;width:52px!important;height:52px!important;min-width:52px!important;max-width:52px!important;margin:0!important;padding:0!important;border-radius:50%!important;align-self:center!important;justify-self:end!important}.concierge-active #ask-form button[type=submit]:disabled{opacity:.72!important;filter:saturate(.5) brightness(.66)!important}.concierge-active #ask-form:focus-within{border-color:#e1bd6c!important;box-shadow:inset 0 1px #fff0bc28,0 0 22px #bb7f2222}
+.concierge-active .opening,.concierge-active .chat-turn{box-sizing:border-box;font-size:16px!important;line-height:1.5!important;padding:14px 17px!important}.concierge-active .opening{margin:6px 0 18px 54px!important;align-self:auto!important;transform:none!important}.concierge-active .opening p{font-size:16px!important;line-height:1.5!important;margin:10px 0 0}.concierge-active .chat-turn{margin-bottom:16px!important;max-width:74%!important}.concierge-active .chat-turn p{font-size:16px!important;line-height:1.5!important;margin:6px 0}.concierge-active .chat-turn header,.concierge-active .opening small,.concierge-active .chat-turn.guest:before{font-size:10px!important;line-height:1.3!important}.concierge-active .opening:before,.concierge-active .chat-turn.concierge:before{width:36px!important;height:36px!important;left:-52px!important;font-size:18px!important;animation:medallionCatch 10.7s ease-in-out infinite}.concierge-active .chat-turn.guest:after{width:36px!important;height:36px!important;right:-52px!important;font-size:13px!important}.concierge-active .chat-turn.concierge{margin-left:54px!important}.concierge-active .chat-turn.guest{margin-right:54px!important;padding:12px 15px!important}.concierge-active .thinking{position:relative;margin:10px 0 16px 54px!important;padding:11px 16px!important;border-left:1px solid #d5a74d;background:linear-gradient(90deg,#29190e8c,transparent);font-size:11px!important;letter-spacing:.12em}.concierge-active .thinking:before{content:"T";position:absolute;left:-52px;top:3px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;color:#291803;font:18px Georgia;background:radial-gradient(circle at 30% 24%,#fff1bd,#d2a94f 35%,#9a651c 70%,#422703);border:1px solid #f0d27f}.concierge-active .thinking i{height:1px!important;background:linear-gradient(90deg,transparent,#ffe29b,transparent)!important;background-size:200% 100%!important;animation:thinkingTrace 1.7s ease-in-out infinite!important}.concierge-active .conversation-stage:after{animation-duration:23s!important}.concierge-active .conversation-stage:before{animation-duration:14.3s!important}
+.concierge-active .recommendation-moment{margin-top:14px;padding:16px;border-top:1px solid #c99c4355;background:linear-gradient(135deg,#28190db8,#0a0705c7)}.concierge-active .recommendation-moment .lead{width:100%;padding:14px;text-align:left;color:#f5eee2;border:1px solid #d4aa5955;background:#0b0806a8}.concierge-active .recommendation-moment .alternatives button{display:block;width:100%;padding:10px 4px;text-align:left;color:#cfc5b4;border:0;border-bottom:1px solid #d4aa5926;background:transparent}
+@keyframes medallionCatch{0%,70%,100%{filter:brightness(.9)}83%{filter:brightness(1.2)}}@keyframes thinkingTrace{from{background-position:180% 0}to{background-position:-20% 0}}@media(max-width:700px){.concierge-active #ask-form>div{grid-template-columns:46px minmax(0,1fr) 50px!important;gap:6px!important}.concierge-active #ask-form>div:before{width:42px!important;height:42px!important}.concierge-active #ask-form button[type=submit]{width:46px!important;height:46px!important;min-width:46px!important}.concierge-active .chat-turn{max-width:82%!important;font-size:15px!important}.concierge-active .chat-turn p,.concierge-active .opening p{font-size:15px!important}}
+@media(prefers-reduced-motion:reduce){.concierge-active .opening:before,.concierge-active .chat-turn.concierge:before,.concierge-active .thinking i{animation:none!important}}
+.concierge-active .public-slot.intent-updated{animation:intentCatch .85s ease-out}.concierge-active .public-slot.intent-updated:after{content:"";position:absolute;left:24px;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#f5d486,transparent);animation:thinkingTrace .8s ease-out}.concierge-active #ask-form button[type=submit]{box-sizing:border-box!important;aspect-ratio:1!important;border-radius:50%!important;overflow:hidden!important}.concierge-active{overflow:hidden!important}@keyframes intentCatch{45%{background-color:#c8953030}}@media(max-width:700px){.concierge-active .opening,.concierge-active .chat-turn{max-width:calc(100% - 64px)!important}.concierge-active .conversation-stage{overflow:hidden!important}}
+
+/* Screen 02 final internal material pass. Outer stage geometry intentionally untouched. */
+.concierge-active .conversation-stage{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 24% 12%,rgba(181,126,47,.055),transparent 42%),
+    linear-gradient(142deg,rgba(24,15,9,.83),rgba(5,4,3,.92))!important;
+}
+.concierge-active .conversation-stage .conversation{
+  background:
+    linear-gradient(115deg,transparent 0 38%,rgba(255,221,154,.025) 48%,transparent 58%),
+    radial-gradient(ellipse at 65% 20%,rgba(173,113,34,.035),transparent 38%);
+  background-size:240% 100%,100% 100%;
+  animation:consultationHaze 31s ease-in-out infinite alternate;
+}
+.concierge-active .conversation-stage .conversation:after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light;animation:materialGrain 17s steps(2,end) infinite;
+}
+.concierge-active .opening,.concierge-active .chat-turn{
+  padding:11px 15px!important;margin-bottom:11px!important;
+  font-size:15.5px!important;line-height:1.46!important;
+  box-shadow:inset 0 1px rgba(255,235,189,.035),0 10px 28px rgba(0,0,0,.13);
+}
+.concierge-active .opening{margin-bottom:13px!important}
+.concierge-active .opening p,.concierge-active .chat-turn p{
+  margin:4px 0!important;font-size:15.5px!important;line-height:1.46!important;
+}
+.concierge-active .chat-turn header,.concierge-active .opening small,.concierge-active .chat-turn.guest:before{
+  font-size:9.5px!important;letter-spacing:.15em!important;
+}
+.concierge-active .opening:after,.concierge-active .chat-turn.concierge:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,231,170,.13) 49%,transparent 57%);
+  background-size:230% 100%;animation:arrivalGlint .52s ease-out both;
+}
+.concierge-active .chat-turn.guest:after{
+  left:auto!important;
+  background:radial-gradient(circle at 35% 28%,#59616a,#252a30 55%,#0c0e10)!important;
+  animation:guestCatch .42s ease-out both!important;
+}
+.concierge-active #ask-form{
+  background:linear-gradient(145deg,rgba(25,17,11,.94),rgba(5,4,3,.97))!important;
+  box-shadow:inset 0 1px rgba(255,238,196,.12),inset 0 -14px 30px rgba(0,0,0,.2),0 14px 34px rgba(0,0,0,.31)!important;
+}
+.concierge-active #ask-form:before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,230,170,.07) 49%,transparent 61%);
+  background-size:230% 100%;animation:composerReflection 19s ease-in-out infinite;
+}
+.concierge-active #ask-form>div:before{
+  border:1px solid rgba(211,165,78,.62)!important;
+  background:radial-gradient(circle at 32% 25%,rgba(255,231,175,.12),transparent 30%),linear-gradient(145deg,#21170f,#070503)!important;
+  box-shadow:inset 0 1px rgba(255,244,212,.18),inset 0 -6px 12px rgba(0,0,0,.4),0 5px 14px rgba(0,0,0,.3)!important;
+}
+.concierge-active #ask-form>div:active:before{transform:translateY(1px) scale(.97)!important}
+.concierge-active #ask{caret-color:#e5c477!important;background:linear-gradient(90deg,rgba(255,228,166,.025),transparent)!important}
+.concierge-active #ask-form button[type=submit]{
+  border:1px solid rgba(255,235,175,.72)!important;
+  background:radial-gradient(circle at 30% 22%,#fff2bd 0 4%,#e4c66f 18%,#b8872e 43%,#7a5118 72%,#3d2608 100%)!important;
+  box-shadow:inset 0 2px 2px rgba(255,247,213,.72),inset 0 -7px 12px rgba(62,35,3,.55),0 8px 20px rgba(0,0,0,.43)!important;
+  transition:transform .18s ease,filter .2s ease,box-shadow .2s ease!important;
+}
+.concierge-active #ask-form button[type=submit]:before{animation-duration:4.65s!important}
+.concierge-active #ask-form button[type=submit].send-ready:hover{transform:translateY(-2px);filter:brightness(1.08) saturate(1.06)}
+.concierge-active #ask-form button[type=submit]:active{transform:translateY(2px) scale(.96)!important;box-shadow:inset 0 4px 9px rgba(67,38,3,.58),0 3px 8px rgba(0,0,0,.45)!important}
+.concierge-active #ask-form button[type=submit]:focus-visible,.concierge-active .recommendation-moment button:focus-visible{
+  outline:2px solid #f2d58d!important;outline-offset:3px!important;
+}
+.concierge-active #ask:focus-visible{outline:0!important}
+.concierge-active #ask-form button[type=submit]:disabled{opacity:1!important;filter:saturate(.38) brightness(.55)!important;box-shadow:inset 0 2px 1px rgba(255,247,213,.2),inset 0 -7px 12px rgba(62,35,3,.5)!important}
+.concierge-active .model-empty:after{
+  content:"PARTY\A TIME\A OCCASION\A ATMOSPHERE\A PRIORITIES";white-space:pre;
+  display:block;margin-top:34px;padding:0 18px;text-align:left;color:rgba(218,185,119,.34);
+  font:9px/4.3 Arial,sans-serif;letter-spacing:.18em;border-top:1px solid rgba(218,185,119,.12);
+  background:repeating-linear-gradient(180deg,transparent 0 37px,rgba(218,185,119,.08) 38px 39px);
+}
+.concierge-active .model-empty{white-space:normal!important;letter-spacing:0!important;line-height:1.55!important;overflow-wrap:anywhere!important}
+.concierge-active .intent-model:after{animation-duration:27s!important}
+.concierge-active .public-slot{animation:dossierResolve .48s ease-out both}
+.concierge-active .public-slot.protected{
+  margin-inline:-7px;padding-inline:7px;border:1px solid rgba(208,173,100,.22)!important;
+  background:linear-gradient(90deg,rgba(128,94,34,.1),transparent);
+}
+.concierge-active .public-slot.protected:before{box-shadow:inset 0 0 0 4px rgba(7,6,4,.72),0 0 0 1px rgba(240,209,137,.28)}
+.concierge-active .intent-transfer-trace{
+  position:fixed;z-index:40;height:1px;pointer-events:none;transform-origin:left center;
+  background:linear-gradient(90deg,transparent,#e9c879 34%,#fff0bd 52%,transparent);
+  box-shadow:0 0 9px rgba(224,181,91,.42);animation:intentFlight .78s ease-out both;
+}
+.concierge-active .recommendation-moment{
+  position:relative;overflow:hidden;border:1px solid rgba(219,178,91,.3)!important;border-top-color:#e4c672!important;
+  background:radial-gradient(ellipse at 78% 8%,rgba(215,163,65,.14),transparent 36%),linear-gradient(145deg,#28190dc7,#080604e8)!important;
+  box-shadow:inset 0 1px rgba(255,239,190,.09),0 16px 34px rgba(0,0,0,.25);
+  animation:recommendationResolve .72s ease-out both;
+}
+.concierge-active .recommendation-moment:before{content:"TABLEKEEPER'S CONSIDERED CHOICE";display:block;margin-bottom:12px;color:#d9b76e;font:9px Arial,sans-serif;letter-spacing:.19em}
+.concierge-active .recommendation-moment .lead{display:grid;gap:7px;background:linear-gradient(110deg,rgba(25,16,9,.94),rgba(7,5,3,.78))!important;transition:.22s ease}
+.concierge-active .recommendation-moment .lead b{font:24px/1.1 Georgia,serif;color:#fff3df}
+.concierge-active .recommendation-moment .lead span{font-size:13px;line-height:1.45;color:#cfc4b2}
+.concierge-active .recommendation-moment .lead:hover{transform:translateY(-1px);border-color:#e2bd6d!important;box-shadow:inset 0 1px rgba(255,241,193,.13),0 10px 24px rgba(0,0,0,.22)}
+.concierge-active .recommendation-moment .lead:active{transform:translateY(1px) scale(.995)}
+.concierge-active .recommendation-moment .alternatives button{font-size:12px;transition:.2s}
+.concierge-active .recommendation-moment .alternatives button:hover{color:#f4e7d0;padding-left:8px;border-color:rgba(226,189,109,.45)}
+@keyframes consultationHaze{0%{background-position:180% 0,0 0}100%{background-position:-25% 0,0 0}}
+@keyframes materialGrain{0%,100%{transform:translate(0,0)}25%{transform:translate(-1%,1%)}50%{transform:translate(1%,-1%)}75%{transform:translate(.5%,1%)}}
+@keyframes arrivalGlint{0%,25%{background-position:190% 0;opacity:0}70%{opacity:1}100%{background-position:-25% 0;opacity:0}}
+@keyframes guestCatch{from{filter:brightness(1.35)}to{filter:brightness(1)}}
+@keyframes composerReflection{0%,38%{background-position:180% 0}78%,100%{background-position:-20% 0}}
+@keyframes dossierResolve{from{opacity:.25;filter:blur(3px);transform:translateX(5px)}to{opacity:1;filter:none;transform:none}}
+@keyframes intentFlight{0%{opacity:0;transform:scaleX(0)}35%{opacity:1}100%{opacity:0;transform:scaleX(1)}}
+@keyframes recommendationResolve{from{opacity:0;filter:blur(5px);transform:translateY(9px)}to{opacity:1;filter:none;transform:none}}
+@media(max-width:700px){
+  .concierge-active .concierge-layout>.conversation-stage{margin:0!important;padding:0!important}
+  .concierge-active .opening,.concierge-active .chat-turn{padding:10px 12px!important;margin-bottom:9px!important}
+  .concierge-active .opening p,.concierge-active .chat-turn p{font-size:15px!important}
+  .concierge-active .opening,.concierge-active .chat-turn{width:auto!important;max-width:calc(100% - 62px)!important}
+  .concierge-active #ask{font-size:15px!important;padding-inline:2px!important}
+  .concierge-active .recommendation-moment .lead b{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){
+  .concierge-active .conversation-stage .conversation,.concierge-active .conversation-stage .conversation:after,
+  .concierge-active #ask-form:before,.concierge-active #ask-form button[type=submit]:before,
+  .concierge-active .public-slot,.concierge-active .intent-transfer-trace,.concierge-active .recommendation-moment,
+  .concierge-active .opening:after,.concierge-active .chat-turn:after{animation:none!important}
+}
+.concierge-active .grounded-reasons{display:grid;gap:7px;margin:12px 0;padding:0;list-style:none}.concierge-active .grounded-reasons li{display:grid;grid-template-columns:minmax(72px,.32fr) 1fr;gap:10px;padding:8px 0;border-top:1px solid rgba(221,181,98,.16)}.concierge-active .grounded-reasons small{color:#d2ad65;font-size:8px;letter-spacing:.12em;text-transform:uppercase}.concierge-active .grounded-reasons span{color:#ddd2c2;font-size:12px;line-height:1.4}.concierge-active .recommendation-authority{margin:12px 0 0!important;color:#a79d8e!important;font-size:10px!important;letter-spacing:.04em}
+
+/* Consolidated flagship composer + transcript sizing. This deliberately wins the legacy stack. */
+.concierge-active #ask-form>div{
+  grid-template-columns:minmax(0,1fr) 52px!important;
+  gap:12px!important;padding:6px 8px 6px 16px!important;margin:0!important;box-sizing:border-box!important;
+}
+.concierge-active #ask-form>div:before{content:none!important;display:none!important}
+.concierge-active #ask{
+  grid-column:1!important;min-height:40px!important;max-height:64px!important;height:auto!important;
+  padding:8px 10px!important;font-size:14.5px!important;line-height:1.4!important;overflow-y:auto!important;
+}
+.concierge-active #ask-form button{
+  grid-column:2!important;position:relative!important;inset:auto!important;box-sizing:border-box!important;
+  display:grid!important;place-items:center!important;width:50px!important;height:50px!important;min-width:50px!important;
+  margin:0!important;padding:0!important;border-radius:50%!important;overflow:hidden!important;align-self:center!important;
+  border:1px solid rgba(255,235,175,.72)!important;
+  background:radial-gradient(circle at 30% 22%,#fff2bd 0 4%,#e4c66f 18%,#b8872e 43%,#7a5118 72%,#3d2608 100%)!important;
+  box-shadow:inset 0 2px 2px rgba(255,247,213,.72),inset 0 -7px 12px rgba(62,35,3,.55),0 8px 20px rgba(0,0,0,.43)!important;
+  font-size:0!important;line-height:0!important;transition:transform .18s ease,filter .2s ease,box-shadow .2s ease!important;
+}
+.concierge-active #ask-form button:after{content:"\2192"!important;position:absolute!important;inset:0!important;display:grid!important;place-items:center!important;font:500 21px/1 Arial,sans-serif!important;color:#1c1103!important;text-indent:0!important;z-index:2}
+.concierge-active #ask-form button:before{content:""!important;position:absolute!important;z-index:1!important;inset:-35%!important;background:linear-gradient(105deg,transparent 39%,rgba(255,255,240,.92) 48%,rgba(255,240,188,.3) 52%,transparent 61%)!important;transform:translateX(-72%);animation:specularTravel 4.65s ease-in-out infinite!important}
+.concierge-active #ask-form button:hover{transform:translateY(-2px)!important;filter:brightness(1.08) saturate(1.06)!important}
+.concierge-active #ask-form button:focus-visible{outline:2px solid #f2d58d!important;outline-offset:3px!important}
+.concierge-active #ask-form button:active{transform:translateY(2px) scale(.96)!important}
+.concierge-active #ask-form button:disabled{opacity:1!important;filter:saturate(.38) brightness(.55)!important;box-shadow:inset 0 2px 1px rgba(255,247,213,.2),inset 0 -7px 12px rgba(62,35,3,.5)!important}
+.concierge-active .opening,.concierge-active .chat-turn{
+  padding:9px 13px!important;margin-bottom:9px!important;font-size:14px!important;line-height:1.43!important;
+}
+.concierge-active .opening p,.concierge-active .chat-turn p{font-size:14px!important;line-height:1.43!important;margin:3px 0!important}
+.concierge-active .chat-turn header,.concierge-active .opening small,.concierge-active .chat-turn.guest:before{font-size:9px!important;line-height:1.25!important}
+.concierge-active .opening:before,.concierge-active .chat-turn.concierge:before{width:34px!important;height:34px!important;left:-48px!important;font-size:16px!important}
+.concierge-active .chat-turn.concierge,.concierge-active .opening{margin-left:48px!important}
+.concierge-active .chat-turn.guest{margin-right:48px!important;padding:9px 12px!important}
+.concierge-active .chat-turn.guest:after{width:34px!important;height:34px!important;right:-48px!important;font-size:12px!important}
+.concierge-active .thinking{margin-left:48px!important;padding:9px 13px!important;font-size:9px!important}
+.concierge-active .thinking:before{left:-48px!important;width:34px!important;height:34px!important;font-size:16px!important}
+@media(max-width:700px){
+  .concierge-active #ask-form>div{grid-template-columns:minmax(0,1fr) 48px!important;gap:8px!important;padding-left:10px!important}
+  .concierge-active #ask{font-size:16px!important;line-height:1.38!important;padding-inline:7px!important}
+  .concierge-active #ask-form button{width:46px!important;height:46px!important;min-width:46px!important}
+  .concierge-active #ask-form{margin-inline:10px!important;width:calc(100% - 20px)!important;box-sizing:border-box!important}
+  .concierge-active .opening,.concierge-active .chat-turn{max-width:calc(100% - 54px)!important}
+}
+@media(prefers-reduced-motion:reduce){.concierge-active #ask-form button:before{animation:none!important}}
+
+/* Focused concierge polish: coordinated panels, viewport fade, and one-shell composer. */
+.concierge-active .concierge-layout>.conversation-stage,
+.concierge-active .concierge-layout>.intent-model{
+  align-self:stretch!important;
+  margin:0!important;
+  min-height:0!important;
+  height:100%!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(222,179,87,.48)!important;
+  border-radius:22px!important;
+  box-shadow:inset 0 1px rgba(255,239,195,.08),0 22px 70px rgba(0,0,0,.34),0 0 26px rgba(190,130,33,.055)!important;
+  animation:panelLustre 14s ease-in-out infinite!important;
+}
+.concierge-active .concierge-layout>.intent-model{
+  background:radial-gradient(ellipse at 28% 8%,rgba(199,145,58,.07),transparent 38%),linear-gradient(145deg,rgba(25,16,10,.9),rgba(5,4,3,.96))!important;
+}
+.concierge-active .conversation{
+  display:flex!important;
+  flex-direction:column!important;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.38) 24px,#000 68px,#000 100%)!important;
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.38) 24px,#000 68px,#000 100%)!important;
+}
+.concierge-active .conversation>.opening:first-of-type,
+.concierge-active .conversation>.chat-turn:first-of-type{
+  margin-top:auto!important;
+}
+.concierge-active .conversation:before{
+  position:sticky!important;
+  top:-18px!important;
+  z-index:12!important;
+  display:block!important;
+  height:56px!important;
+  margin:-18px -34px -38px!important;
+  border:0!important;
+  background:linear-gradient(180deg,rgba(8,5,3,.68),rgba(9,6,4,.24) 58%,transparent)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.72) 48%,transparent)!important;
+  mask-image:linear-gradient(#000,rgba(0,0,0,.72) 48%,transparent)!important;
+  pointer-events:none!important;
+}
+.concierge-active .chat-turn{
+  opacity:1;
+  filter:none;
+  transform:none;
+}
+.concierge-active #ask-form{
+  border:1px solid rgba(223,181,91,.5)!important;
+  border-radius:999px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  transition:border-color .24s ease,box-shadow .24s ease,transform .24s ease!important;
+}
+.concierge-active #ask-form>div{
+  height:100%!important;
+  border:0!important;
+  border-radius:inherit!important;
+  border-image:none!important;
+  outline:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  transform:none!important;
+}
+.concierge-active #ask{
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.concierge-active #ask-form:focus-within{
+  border-color:rgba(246,214,137,.9)!important;
+  box-shadow:inset 0 1px rgba(255,242,205,.14),0 0 0 2px rgba(230,188,99,.16),0 14px 38px rgba(0,0,0,.34),0 0 24px rgba(198,139,42,.12)!important;
+}
+.concierge-active #ask-form button[type=submit]{
+  animation:sendGoldBreath 5.8s ease-in-out infinite!important;
+}
+.concierge-active #ask-form button[type=submit]:before{
+  animation:specularTravel 5.8s cubic-bezier(.5,0,.2,1) infinite!important;
+}
+.concierge-active #ask-form button[type=submit]:hover,
+.concierge-active #ask-form button[type=submit]:focus-visible{
+  transform:translateY(-2px)!important;
+  filter:brightness(1.12) saturate(1.05)!important;
+  box-shadow:inset 0 2px 2px rgba(255,247,213,.8),inset 0 -7px 12px rgba(62,35,3,.48),0 9px 24px rgba(214,158,54,.25)!important;
+}
+.concierge-active #ask-form button[type=submit]:active{transform:translateY(1px) scale(.96)!important}
+.concierge-active #ask-form button[type=submit]:disabled{
+  animation:none!important;
+  cursor:not-allowed!important;
+}
+.concierge-active #ask-form button[type=submit]:disabled:before{animation:none!important;opacity:0!important}
+@keyframes panelLustre{
+  0%,100%{border-color:rgba(222,179,87,.4);box-shadow:inset 0 1px rgba(255,239,195,.07),0 22px 70px rgba(0,0,0,.34),0 0 24px rgba(190,130,33,.045)}
+  50%{border-color:rgba(238,202,124,.58);box-shadow:inset 0 1px rgba(255,239,195,.12),0 22px 70px rgba(0,0,0,.34),0 0 31px rgba(204,148,47,.085)}
+}
+@keyframes sendGoldBreath{0%,62%,100%{filter:brightness(.94)}78%{filter:brightness(1.08)}}
+@media(max-width:1000px){
+  .concierge-active .concierge-layout>.conversation-stage,
+  .concierge-active .concierge-layout>.intent-model{height:auto!important}
+}
+@media(max-width:700px){
+  .concierge-active .conversation:before{margin-inline:-22px!important}
+  .concierge-active #ask-form{border-radius:999px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .concierge-active .concierge-layout>.conversation-stage,
+  .concierge-active .concierge-layout>.intent-model,
+  .concierge-active #ask-form button[type=submit],
+  .concierge-active #ask-form button[type=submit]:before{animation:none!important}
+}
+
+
+/* Concierge compact information-density pass */
+.concierge-active .chat-turn{padding:8px 13px!important;margin-bottom:8px!important;font-size:14px!important;line-height:1.38!important}
+.concierge-active .chat-turn p{margin:3px 0!important;font-size:14px!important;line-height:1.38!important}
+.concierge-active .chat-turn header,.concierge-active .chat-turn.guest:before{font-size:8.5px!important;line-height:1.2!important}
+.concierge-active .recommendation-moment{margin-top:9px!important;padding:11px 12px!important}
+.concierge-active .recommendation-moment:before{margin-bottom:7px!important;font-size:8px!important;letter-spacing:.16em!important}
+.concierge-active .recommendation-moment .lead{padding:9px 10px!important;gap:3px!important}
+.concierge-active .recommendation-moment .lead small{font-size:8px!important}
+.concierge-active .recommendation-moment .lead b{font-size:21px!important;line-height:1.05!important;margin:2px 0!important}
+.concierge-active .recommendation-moment .lead span{font-size:11.5px!important;line-height:1.3!important}
+.concierge-active .grounded-reasons{gap:3px!important;margin:7px 0!important}
+.concierge-active .grounded-reasons li{grid-template-columns:minmax(64px,.28fr) 1fr!important;gap:8px!important;padding:4px 0!important}
+.concierge-active .grounded-reasons small{font-size:7.5px!important;line-height:1.25!important}
+.concierge-active .grounded-reasons span{font-size:11.5px!important;line-height:1.3!important}
+.concierge-active .recommendation-moment .alternatives{gap:10px!important;margin-top:7px!important}
+.concierge-active .recommendation-moment .alternatives button{padding:6px 3px!important;font-size:11px!important;line-height:1.3!important}
+.concierge-active .recommendation-authority{margin:7px 0 0!important;font-size:9px!important;line-height:1.3!important;opacity:.72}
+@media(max-width:700px){.concierge-active .chat-turn{font-size:13.5px!important;padding:8px 11px!important}.concierge-active .chat-turn p{font-size:13.5px!important}.concierge-active .recommendation-moment{padding:10px!important}.concierge-active .recommendation-moment .lead b{font-size:19px!important}.concierge-active .grounded-reasons li{grid-template-columns:60px 1fr!important}.concierge-active .recommendation-moment .alternatives button{margin-top:4px!important}}
+
+/* Recommendation hierarchy polish */
+.recommendation-moment{position:relative;overflow:hidden}
+.recommendation-moment .lead{position:relative;display:grid;gap:5px;padding:13px 14px 12px;border:1px solid rgba(199,167,106,.34);border-radius:13px;background:linear-gradient(135deg,rgba(199,167,106,.10),rgba(199,167,106,.025) 55%,transparent)}
+.recommendation-moment .lead:after{content:'TOP PICK';position:absolute;top:10px;right:11px;padding:4px 7px;border:1px solid rgba(199,167,106,.28);border-radius:999px;color:#d6ba7c;background:rgba(9,10,9,.55);font:700 8px 'DM Mono',monospace;letter-spacing:.11em}
+.recommendation-moment .lead small{color:#a8d36f;pont-size:8px;letter-spacing:.12em}
+.recommendation-moment .lead b{padding-right:68px;font-size:17px;line-height:1.15;letter-spacing:-.02em}
+.grounded-reasons{position:relative;margin:9px 0 0;padding:19px 0 0}
+
+.grounded-reasons li{position:relative;padding:7px 8px 7px 22px;border-bottom:1px solid rgba(199,167,106,.10)}
+
+
+/* Alternatives hierarchy */.alternatives{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px;padding-top:21px;border-top:1px solid rgba(199,167,106,.13)}.alternatives:before{content:'OTHER GREAT MATCHES';position:absolute;top:6px;left:0;color:#77736a;font:700 8px 'DM Mono',monospace;letter-spacing:.12em}.alternatives button{position:relative;min-width:0;padding:9px 24px 9px 10px;border:1px solid rgba(199,167,106,.16);border-radius:10px;background:rgba(255,255,255,.018);color:#d9d3c7;font-size:10px;line-height:1.35;text-align:left;transition:border-color .18s ease,background .18s ease,transform .18s ease}.alternatives button:after{content:'>';position:absolute;right:9px;top:50%;transform:translateY(-50%);color:#c7a76a;font-size:12px}.alternatives button:hover,.alternatives button:focus-visible{border-color:rgba(199,167,106,.48);background:rgba(199,167,106,.07);transform:translateY(-1px)}.recommendation-authority{margin-top:8px;padding-top:7px;opacity:.68}@media(max-width:700px){.alternatives{grid-template-columns:1fr}.recommendation-moment .lead b{padding-right:62px}}@media(prefers-reduced-motion:reduce){.alternatives button{transition:none}.alternatives button:hover,.alternatives button:focus-visible{transform:none}}
+
+

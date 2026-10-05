@@ -1,0 +1,13 @@
+{
+  "name": "@tablekeeper/concierge-intelligence",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/index.mjs && node --test",
+    "start": "node src/server.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "node --test",
+    "test:resilience": "node --test tests/resilience.test.mjs"
+  }
+}

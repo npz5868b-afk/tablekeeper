@@ -1,0 +1,41 @@
+{
+  "manifestVersion":"1.0.0",
+  "manifestType":"CONTRACT_FREEZE",
+  "createdAt":"2026-09-30T00:00:00+08:00",
+  "architectureBaseline":"phase1-architecture-gate/1.0.0",
+  "contractRelease":"1.0.0",
+  "authority":"Contract Steward",
+  "verdict":"PASS",
+  "verdictReasons":[
+    "C01-C12 structures and A-01-A-16 dispositions match the frozen Architecture Gate",
+    "Executable positive and dangerous-negative contract fixtures pass 39/39 under pinned Node.js 22",
+    "Pinned Node.js 22 and Python 3.12 generation is deterministic and cross-runtime canonical parity passes",
+    "Pinned PostgreSQL 17 reference proofs pass allocation, group atomicity, idempotency, outbox, RLS, and pooled-context assertions",
+    "C12 evidence links, digests, network controls, provenance, artifact hashes, and read-only retention independently verify"
+  ],
+  "successfulExecutionId":"tk-c0-20260929231956798-e8180c15",
+  "successfulEvidencePath":"recovery/evidence/runs/tk-c0-20260929231956798-e8180c15",
+  "postRecoveryVerification":"recovery/post-recovery-verification.json",
+  "passedExecutableProof":[
+    {"id":"authority-digests","result":"PASS","detail":"architecture gate and handoff manifest match architecture/phase1/SHA256SUMS"},
+    {"id":"contracts-lint-and-fixtures","result":"PASS","environment":"Node.js 22.23.3 pinned container","fixtureCount":39},
+    {"id":"deterministic-generation","result":"PASS","environments":["Node.js 22.23.3","Python 3.12.14"],"detail":"two byte-identical generations per runtime"},
+    {"id":"cross-runtime-parity","result":"PASS","fixtureCountPerRuntime":12,"canonicalSha256":"a42ef57c0e9f652778de26a60868153023d8e35c16215d88b80eba4b81d6d4f0"},
+    {"id":"postgresql-reference-proof","result":"PASS","environment":"PostgreSQL 17 pinned container","assertionCount":9},
+    {"id":"evidence-provenance","result":"PASS","artifactCount":56,"networkIsolation":true,"readOnlyRetention":true},
+    {"id":"compatibility","result":"PASS","tool":"oasdiff 1.11.7","detail":"initial release has no predecessor; self-diff non-breaking"}
+  ],
+  "implementationDependentProofs":[
+    "application adapter behavior and authorization",
+    "production token cryptography and transactional consumption",
+    "production reservation lifecycle and policy persistence",
+    "production retrieval, replanning, outbox, attempt-ledger, and CI integrations"
+  ],
+  "benchmarkDeferrals":["C08 model/threshold/hardware","C09 embedding/index/fusion/reranker","C10 solver/objectives","C11 deployment retention","C12 optional signing/trust root"],
+  "preservedFailedExecutions":["tk-c0-20260929224205","tk-c0-20260929224716","tk-c0-20260929225249","tk-c0-20260929231155095-136558a8"],
+  "downstreamSpecialistsSafeToActivateAfterCoordinatorAcceptance":true,
+  "artifactDigestFile":"SHA256SUMS",
+  "artifactDigestAlgorithm":"SHA-256",
+  "sourceRevision":{"value":"UNAVAILABLE","dirtyState":"UNKNOWN","reason":"workspace is not exposed as a Git worktree; artifact graph is content-addressed"},
+  "coordinatorDisposition":"PENDING"
+}

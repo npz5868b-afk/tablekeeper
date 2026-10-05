@@ -1,0 +1,32 @@
+{
+  "documentVersion": "1.0.0",
+  "operation": "up",
+  "result": "PASS",
+  "postgresqlMajor": 17,
+  "migrationHead": "0004_venue_service_hours",
+  "appliedMigrations": [
+    {
+      "migrationId": "0001_roles_ledger",
+      "fileName": "0001_roles_ledger.up.sql",
+      "fileSha256": "4336965d751f50f3b038d5598df551d2015c307bae50be75fc2fac4da1bf6d25"
+    },
+    {
+      "migrationId": "0002_core_tables",
+      "fileName": "0002_core_tables.up.sql",
+      "fileSha256": "c0fc0e7c886b3e9022b2c1f755399c196f7e52c423402ca2621ea88270b09b3b"
+    },
+    {
+      "migrationId": "0003_rls_privileges_immutability",
+      "fileName": "0003_rls_privileges_immutability.up.sql",
+      "fileSha256": "2b527096c7e4672efb77f77b2373ce163e0fbbe65f7e2ade3545fac99738c3ed"
+    },
+    {
+      "migrationId": "0004_venue_service_hours",
+      "fileName": "0004_venue_service_hours.up.sql",
+      "fileSha256": "1cf047dcc8abdf941db1205ca88c33e0c74288945472f34ed42303c96d2cf9ce"
+    }
+  ],
+  "contractGraphSha256": "40a6ab1ac6ba508864e28d5c7a63fec56efb72cf2483416f83acc9969d1a4d09",
+  "startedAt": "2026-10-03T15:21:40.118Z",
+  "finishedAt": "2026-10-03T15:21:41.746Z"
+}

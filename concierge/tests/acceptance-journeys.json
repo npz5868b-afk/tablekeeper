@@ -1,0 +1,16 @@
+[
+  {"id":"A","journey":"Complete request reaches grounded recommendations","file":"agent-orchestration.test.mjs","test":"multi-turn graph clarifies one missing field then reaches a checkpointed decision"},
+  {"id":"B","journey":"Missing blocking field receives one clarification","file":"agent-orchestration.test.mjs","test":"multi-turn graph clarifies one missing field then reaches a checkpointed decision"},
+  {"id":"C","journey":"Later turn preserves unrelated facts","file":"agent-orchestration.test.mjs","test":"IntentUpdate is closed and PATCH/MERGE preserves unrelated state"},
+  {"id":"D","journey":"Multiple dietary constraints coexist","file":"verification-remediation.test.mjs","test":"multi-valued constraints coexist and support targeted replacement and removal"},
+  {"id":"E","journey":"Explanation is grounded in ranked evidence","file":"retrieval-decision.test.mjs","test":"explain, compare, and reject use only ranked facts and evidence"},
+  {"id":"F","journey":"Referenced pair comparison is honored","file":"verification-remediation.test.mjs","test":"COMPARE honors exactly the referenced first and second candidates"},
+  {"id":"G","journey":"Rejected candidate is removed","file":"retrieval-decision.test.mjs","test":"completed graph integrates retrieval, decision, compare and reject transitions"},
+  {"id":"H","journey":"Reservation HTTP envelopes delegate unchanged","file":"agent-orchestration.test.mjs","test":"Reservation Core adapter delegates accepted routes and unchanged envelopes"},
+  {"id":"I","journey":"Reservation failure never fabricates success","file":"agent-orchestration.test.mjs","test":"reservation failure never fabricates booking confirmation and retains review state"},
+  {"id":"J","journey":"Provider outage preserves checkpoint","file":"agent-orchestration.test.mjs","test":"provider failure preserves prior checkpoint and returns retryable safe response"},
+  {"id":"K","journey":"Retrieval and decision failures are classified","file":"verification-remediation.test.mjs","test":"failure classes and transitions reflect only entered graph nodes"},
+  {"id":"L","journey":"Unknown facts fail hard constraints","file":"retrieval-decision.test.mjs","test":"hard filtering rejects false and unknown facts exactly"},
+  {"id":"M","journey":"Ranking is reproducible","file":"retrieval-decision.test.mjs","test":"weighted ranking is reproducible with inspectable score breakdown and stable tie-breaking"},
+  {"id":"N","journey":"Malformed structured output fails safely","file":"verification-remediation.test.mjs","test":"malformed Azure structured output fails as a provider error"}
+]

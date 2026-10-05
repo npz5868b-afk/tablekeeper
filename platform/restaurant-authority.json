@@ -1,0 +1,32 @@
+{
+  "fixtureVersion": "2.0.0",
+  "tenant": {"tenantId":"10000000-0000-4000-8000-000000000001","displayName":"Tablekeeper Local Demo","createdAt":"2026-10-01T00:00:00.000Z"},
+  "timeZone": "Asia/Kuala_Lumpur",
+  "policy": {"category":"BOOKING_CANCELLATION","locale":"en-MY","publishedAt":"2026-10-01T00:00:00.000Z","terms":"Reservations may be changed or cancelled through the restaurant. No fee is charged in this synthetic local experience."},
+  "restaurants": [
+    {"catalogId":"fixture-lotus-yard","name":"Lotus Yard","venueId":"20000000-0000-4000-8000-000000000001","capacities":[2,2,4,4],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"23:00"}},
+    {"catalogId":"fixture-ember-room","name":"Ember Room","venueId":"20000000-0000-4000-8000-000000000002","capacities":[2,4,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:30","closes":"23:30"}},
+    {"catalogId":"fixture-harbor-leaf","name":"Harbor Leaf","venueId":"20000000-0000-4000-8000-000000000003","capacities":[2,2,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"22:30"}},
+    {"catalogId":"fixture-saffron-terrace","name":"Saffron Terrace","venueId":"20000000-0000-4000-8000-000000000004","capacities":[4,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"18:00","closes":"23:30"}},
+    {"catalogId":"fixture-jade-pavilion","name":"Jade Pavilion","venueId":"20000000-0000-4000-8000-000000000005","capacities":[2,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:30","closes":"23:00"}},
+    {"catalogId":"fixture-mizu-counter","name":"Mizu Counter","venueId":"20000000-0000-4000-8000-000000000006","capacities":[2,2,2,4],"hours":{"days":[1,2,3,4,5,6],"opens":"18:00","closes":"23:00"}},
+    {"catalogId":"fixture-basil-house","name":"Basil House","venueId":"20000000-0000-4000-8000-000000000007","capacities":[2,4,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"16:30","closes":"22:30"}},
+    {"catalogId":"fixture-maison-ciel","name":"Maison Ciel","venueId":"20000000-0000-4000-8000-000000000008","capacities":[2,2,4,6],"hours":{"days":[2,3,4,5,6],"opens":"18:00","closes":"23:30"}},
+    {"catalogId":"fixture-nasi-atelier","name":"Nasi Atelier","venueId":"20000000-0000-4000-8000-000000000009","capacities":[2,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"22:00"}},
+    {"catalogId":"fixture-olive-grove","name":"Olive Grove","venueId":"20000000-0000-4000-8000-000000000010","capacities":[2,2,4,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:30","closes":"23:00"}},
+    {"catalogId":"fixture-trattoria-nova","name":"Trattoria Nova","venueId":"20000000-0000-4000-8000-000000000011","capacities":[2,4,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"23:30"}},
+    {"catalogId":"fixture-kumo-dining","name":"Kumo Dining","venueId":"10000000-0000-4000-8000-000000000012","capacities":[4,4],"resourceIds":["10000000-0000-4000-8000-000000000013","10000000-0000-4000-8000-000000000016"],"policyVersionId":"10000000-0000-4000-8000-000000000015","policyTerms":"Local demo booking terms: cancellations are recorded by Reservation Core. No fee is charged by this fixture.","hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"23:00"}},
+    {"catalogId":"fixture-spice-route","name":"Spice Route","venueId":"20000000-0000-4000-8000-000000000013","capacities":[2,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"22:30"}},
+    {"catalogId":"fixture-red-lantern","name":"Red Lantern","venueId":"20000000-0000-4000-8000-000000000014","capacities":[2,2,4,6],"hours":{"days":[1,2,3,4,5,6],"opens":"17:30","closes":"23:00"}},
+    {"catalogId":"fixture-lemongrass-table","name":"Lemongrass Table","venueId":"20000000-0000-4000-8000-000000000015","capacities":[2,4,4,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"16:30","closes":"22:30"}},
+    {"catalogId":"fixture-petit-jardin","name":"Petit Jardin","venueId":"20000000-0000-4000-8000-000000000016","capacities":[2,2,4,4],"hours":{"days":[2,3,4,5,6],"opens":"18:00","closes":"23:00"}},
+    {"catalogId":"fixture-warung-modern","name":"Warung Modern","venueId":"20000000-0000-4000-8000-000000000017","capacities":[2,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"16:00","closes":"22:00"}},
+    {"catalogId":"fixture-aegean-blue","name":"Aegean Blue","venueId":"20000000-0000-4000-8000-000000000018","capacities":[2,4,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:30","closes":"23:00"}},
+    {"catalogId":"fixture-osteria-verde","name":"Osteria Verde","venueId":"20000000-0000-4000-8000-000000000019","capacities":[2,2,4,6,8],"hours":{"days":[1,2,3,4,5,6],"opens":"17:00","closes":"23:00"}},
+    {"catalogId":"fixture-sakura-garden","name":"Sakura Garden","venueId":"20000000-0000-4000-8000-000000000020","capacities":[2,4,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:00","closes":"22:30"}},
+    {"catalogId":"fixture-copper-tiffin","name":"Copper Tiffin","venueId":"20000000-0000-4000-8000-000000000021","capacities":[2,4,6],"hours":{"days":[0,1,2,3,4,5,6],"opens":"17:30","closes":"23:00"}},
+    {"catalogId":"fixture-pearl-river","name":"Pearl River","venueId":"20000000-0000-4000-8000-000000000022","capacities":[4,4,6,8],"hours":{"days":[1,2,3,4,5,6],"opens":"17:30","closes":"23:30"}},
+    {"catalogId":"fixture-siam-rooftop","name":"Siam Rooftop","venueId":"20000000-0000-4000-8000-000000000023","capacities":[2,4,4,6,8],"hours":{"days":[0,1,2,3,4,5,6],"opens":"18:00","closes":"23:30"}},
+    {"catalogId":"fixture-atelier-rouge","name":"Atelier Rouge","venueId":"20000000-0000-4000-8000-000000000024","capacities":[2,2,4,6],"hours":{"days":[2,3,4,5,6],"opens":"18:00","closes":"23:30"}}
+  ]
+}

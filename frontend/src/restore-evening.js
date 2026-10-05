@@ -1,0 +1,3 @@
+import{state}from"./app.js";import{reservationBoundary}from"./reservation-boundary.js";
+const id=localStorage.getItem("tablekeeper.confirmedReservationId");
+if(id)reservationBoundary.getReservation(id).then(response=>{const result=response.result||response;if(result.status!=="CONFIRMED")throw Error("Reservation is not confirmed");state.confirmation=result;state.venue={id:result.venueId,name:result.venueName||"Confirmed venue"};state.space=[(result.resources||[]).map(x=>x.name||x.resourceId).join(", ")||"Confirmed table"];state.candidate={timeRange:result.timeRange||result.requestedRange||{start:result.startAt,end:result.endAt}}}).catch(()=>localStorage.removeItem("tablekeeper.confirmedReservationId"));

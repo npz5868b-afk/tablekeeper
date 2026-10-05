@@ -1,0 +1,48 @@
+{
+  "documentVersion": "1.0.0",
+  "gate": "C1A",
+  "component": "reservation_core",
+  "disposition": "PASS",
+  "issuedAt": "2026-09-30T12:30:00+08:00",
+  "scope": "PostgreSQL 17 migration skeleton and authoritative constraint catalogue",
+  "frozenInputs": {
+    "c0_5ReadinessSha256": "89c9809734d3bb657708836ddeb202257b42edc3503009a306c8c7f97f0c96b6",
+    "interfaceAddendumSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f"
+  },
+  "evidence": {
+    "validationCheckpoint": {
+      "path": "reservation-core/tests/migration/c1a-validation-checkpoint.json",
+      "sha256": "f056fb7e0a36f5ff0db48f467e507dfda0a88e7ce52f2cb137b2826bfd6f2d12"
+    },
+    "migrationManifest": {
+      "path": "reservation-core/migrations/manifest.json",
+      "sha256": "cad75acd23141de6d47b5075882126a2490e0a3993b534073dd6e12f423b009d"
+    },
+    "constraintCatalogue": {
+      "path": "reservation-core/migrations/constraint-catalogue.json",
+      "sha256": "6be744bd4a21c5a018d6b03110c1d58a5e7b2c5b16249b8703c0e054449bb83c"
+    },
+    "postgresql17Harness": {
+      "path": "reservation-core/tests/migration/run-postgres17.ps1",
+      "sha256": "c2f81787f67123b74d0ff47481021a3f3652a5bd2f3ec7f4c2a3e12d9db817b2",
+      "operatorCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File reservation-core\\tests\\migration\\run-postgres17.ps1",
+      "result": {
+        "suite": "c1a-postgresql17-migrations",
+        "result": "PASS"
+      },
+      "provenance": "operator-reported host execution"
+    }
+  },
+  "validatedOutcomes": [
+    "static migration suite 6/6 PASS",
+    "Node syntax PASS",
+    "manifest, constraint catalogue, and migration-result schema parsing PASS",
+    "PowerShell harness parsing PASS",
+    "manifest-to-SQL digest verification PASS",
+    "PostgreSQL 17 up, privilege, RLS, and down integration harness PASS"
+  ],
+  "resolvedBlocker": "PostgreSQL 17 host integration validation completed successfully",
+  "remainingBlockers": [],
+  "decision": "Accept C1A within its bounded migration and database-authority foundation scope.",
+  "nextPhaseActivation": "NOT_AUTHORIZED"
+}

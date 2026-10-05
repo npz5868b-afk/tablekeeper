@@ -1,0 +1,60 @@
+{
+  "fixtureVersion": "1.2.0",
+  "tenant": {
+    "tenantId": "10000000-0000-4000-8000-000000000001",
+    "displayName": "Tablekeeper Local Demo",
+    "createdAt": "2026-10-01T00:00:00.000Z"
+  },
+  "venue": {
+    "venueId": "10000000-0000-4000-8000-000000000012",
+    "canonicalRestaurantId": "fixture-kumo-dining",
+    "displayName": "Kumo Dining",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "createdAt": "2026-10-01T00:00:00.000Z"
+  },
+  "resources": [
+    {
+      "resourceId": "10000000-0000-4000-8000-000000000013",
+      "label": "Aurelia",
+      "capacity": 4,
+      "active": true,
+      "version": 2,
+      "previousIdentity": { "label": "Local Demo Table 1", "version": 1 }
+    },
+    {
+      "resourceId": "10000000-0000-4000-8000-000000000016",
+      "label": "Nocturne",
+      "capacity": 4,
+      "active": true,
+      "version": 2,
+      "previousIdentity": { "label": "Local Demo Table 2", "version": 1 }
+    }
+  ],
+  "groups": [
+    {
+      "groupId": "10000000-0000-4000-8000-000000000014",
+      "label": "Local Demo Dining Room",
+      "version": 1,
+      "active": true,
+      "resourceIds": ["10000000-0000-4000-8000-000000000013"]
+    },
+    {
+      "groupId": "10000000-0000-4000-8000-000000000017",
+      "label": "Local Demo Dining Room Alternative",
+      "version": 1,
+      "active": true,
+      "resourceIds": ["10000000-0000-4000-8000-000000000016"]
+    }
+  ],
+  "policies": [
+    {
+      "policyVersionId": "10000000-0000-4000-8000-000000000015",
+      "category": "BOOKING_CANCELLATION",
+      "canonicalContentDigest": "sha256:736a2e643158aa6487231dd88afbc4e46f4b2234760d4339ed40e175f2e0bbfb",
+      "renderedTermsArtifact": "Local demo booking terms: cancellations are recorded by Reservation Core. No fee is charged by this fixture.",
+      "locale": "en-MY",
+      "publishedAt": "2026-10-01T00:00:00.000Z",
+      "immutable": true
+    }
+  ]
+}

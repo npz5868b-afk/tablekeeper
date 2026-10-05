@@ -1,0 +1,48 @@
+{
+  "kind": "layered",
+  "title": "Tablekeeper Agentic AI Brain",
+  "layers": [
+    {"id":"experience","title":"Frozen Experience","items":[{"id":"screen01","label":"V3 Screen 01","detail":"Visual implementation frozen; consumes stable concierge API only"}]},
+    {"id":"agent_service","title":"Concierge Agent Service","items":[
+      {"id":"agent_api","label":"Frontend-facing API","detail":"Server-side conversation endpoint; no model secrets in browser"},
+      {"id":"language_provider","label":"Language Provider","detail":"Gonka / DeepSeek semantic proposals, Azure structured output, or explicit deterministic local mode"},
+      {"id":"dining_intent","label":"Local Intent Trust Boundary","detail":"Bounded normalization, authoritative schema validation, exact turn evidence checks, deterministic merge and readiness"},
+      {"id":"langgraph","label":"LangGraph Orchestrator","detail":"Explicit state nodes, decisions, interrupts and checkpoints"},
+      {"id":"checkpoints","label":"Conversation Checkpoints","detail":"Server-side per-thread graph and intent state"},
+      {"id":"safe_traces","label":"Safe Structured Traces","detail":"Transitions, field changes, tools, filtering, scores and failures; no chain-of-thought"}]},
+    {"id":"decision","title":"Grounded Restaurant Decisioning","items":[
+      {"id":"restaurant_catalog","label":"Restaurant Catalog","detail":"24+ differentiated structured fixtures and grounded evidence"},
+      {"id":"retrieval","label":"Retrieval Port","detail":"Deterministic local retrieval; Azure AI Search production adapter"},
+      {"id":"hard_filter","label":"Hard Constraint Filter","detail":"Exact operational truth; unknown never passes a hard constraint"},
+      {"id":"ranking","label":"Deterministic Ranking","detail":"Reproducible weighted scoring and explainable breakdown"},
+      {"id":"explainable_recommendation","label":"Explainable Recommendation","detail":"Concise guest reason projected only from ranked checks and retrieval evidence"},
+      {"id":"smart_fallback","label":"Smart Fallback","detail":"Preserves canonical hard constraints; labels alternative restaurant availability unchecked; unsupported options remain explicit"},
+      {"id":"restaurant_tools","label":"Restaurant Tools","detail":"Search, evidence, rank and compare"}]},
+    {"id":"authority","title":"Frozen Transaction Authority","items":[
+      {"id":"reservation_tools","label":"Reservation Tool Adapter","detail":"Search, prepare, confirm and readback through accepted HTTP contract"},
+      {"id":"reservation_guardian","label":"Reservation Guardian","detail":"Classifies authoritative outcome vs uncertainty; retries reuse the same confirm idempotency key"},
+      {"id":"reservation_core","label":"Reservation Core 2.0.0","detail":"Sole authority for availability and reservations; implementation frozen"}]}
+  ],
+  "flows": [
+    {"from":"screen01","to":"agent_api","label":"Conversation turn / structured response"},
+    {"from":"agent_api","to":"langgraph","label":"Thread + user turn"},
+    {"from":"langgraph","to":"language_provider","label":"Conversational turn + current canonical intent"},
+    {"from":"language_provider","to":"dining_intent","label":"Untrusted semantic proposal"},
+    {"from":"dining_intent","to":"langgraph","label":"Validated deterministic canonical intent + readiness"},
+    {"from":"langgraph","to":"checkpoints","label":"Persist state and interrupts"},
+    {"from":"langgraph","to":"retrieval","label":"RETRIEVE_CANDIDATES"},
+    {"from":"retrieval","to":"restaurant_catalog","label":"Hybrid evidence lookup"},
+    {"from":"retrieval","to":"hard_filter","label":"Candidate set"},
+    {"from":"hard_filter","to":"ranking","label":"Eligible candidates"},
+    {"from":"ranking","to":"explainable_recommendation","label":"Matched checks + evidence only"},
+    {"from":"ranking","to":"smart_fallback","label":"Grounded alternatives; constraints preserved"},
+    {"from":"ranking","to":"restaurant_tools","label":"Scores and evidence"},
+    {"from":"langgraph","to":"restaurant_tools","label":"Tool calls"},
+    {"from":"langgraph","to":"reservation_tools","label":"ACCEPT only"},
+    {"from":"reservation_tools","to":"reservation_core","label":"Accepted Contract 2.0.0 HTTP"},
+    {"from":"reservation_tools","to":"reservation_guardian","label":"Result, conflict, or transport uncertainty"},
+    {"from":"reservation_guardian","to":"screen01","label":"Authoritative status or safe recovery"},
+    {"from":"langgraph","to":"safe_traces","label":"Redacted operational events"},
+    {"from":"langgraph","to":"agent_api","label":"Grounded response + UI state"}
+  ]
+}

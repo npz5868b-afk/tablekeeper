@@ -1,0 +1,54 @@
+{
+  "dispositionVersion": "1.0.0",
+  "dispositionType": "COORDINATOR_C0_5_INTEGRATION_READINESS",
+  "recordedAt": "2026-09-30T07:57:45.2321854+08:00",
+  "architectureBaseline": "phase1-architecture-gate/1.0.0",
+  "contractRelease": "1.0.0",
+  "checkpoint": "C0.5",
+  "coordinatorVerdict": "PASS",
+  "frozenPins": {
+    "architectureGateSha256": "3659c4ca8adac2a0b95fd65852a153cc53ea17414c003e6b4fcdad8738d01eb5",
+    "contractFreezeManifestSha256": "28f991adc85783bbd61aa4cc8704490001d0cdffdbab7d632ea895f7714e0e04",
+    "w0Sha256SumsSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec"
+  },
+  "acceptedArtifacts": {
+    "reservationCoreConfirmation": {
+      "path": "reservation-core/docs/c0.5-confirmation.md",
+      "sha256": "b80da883778f7931297f5e1c55958801fb190e4616fe4e3ff4d596b966a4417d"
+    },
+    "platformEvidenceConfirmation": {
+      "path": "architecture/phase1/c0.5-platform-evidence-confirmation.md",
+      "sha256": "ac7c34de267f079e5273736cd503fef16c3841825a9626db3ca2a0cd8ef30d86"
+    },
+    "reconciledInterface": {
+      "path": "reservation-core/docs/c0.5-interface-addendum.md",
+      "sha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f"
+    }
+  },
+  "agreements": {
+    "identicalW0DigestPinning": "PASS",
+    "generatedContractAuthorityWithoutDivergentTypes": "PASS",
+    "migrationInterface": "PASS",
+    "readinessInterface": "PASS",
+    "seedInterface": "PASS",
+    "proofHookInterface": "PASS",
+    "auditAndEvidenceInterface": "PASS",
+    "c12CandidateToFinalProjection": "PASS",
+    "disjointPathOwnership": "PASS",
+    "noAlternateReservationMutationPath": "PASS",
+    "contractStewardConformance": "PASS",
+    "reservationCoreAcceptance": "PASS",
+    "platformEvidenceAcceptance": "PASS"
+  },
+  "releasedPackages": {
+    "C1A": "Reservation Core migration skeleton and authoritative constraint catalogue",
+    "C2A": "Platform runtime and evidence foundation"
+  },
+  "releaseConstraints": [
+    "C1A is confined to reservation-core owned paths and may not implement Platform scope.",
+    "C2A is confined to platform owned paths and may not implement placeholder Reservation Core artifacts or semantics.",
+    "The reconciled interface SHA-256 is immutable for both packages; changes require a new integration disposition.",
+    "Experience, AI/Local Intelligence, RAG, and Replanning remain inactive."
+  ],
+  "operatorInterventionRequired": false
+}

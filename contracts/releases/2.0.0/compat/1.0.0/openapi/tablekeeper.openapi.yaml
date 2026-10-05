@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Tablekeeper Phase 1 Contract API
+  version: 1.0.0
+  x-architecture-baseline: phase1-architecture-gate/1.0.0
+servers: []
+paths:
+  /v1/availability/search:
+    post:
+      operationId: searchAvailability
+      responses:
+        '200': {description: Advisory candidates, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/AvailabilityResult'}}}}
+        '422': {$ref: '#/components/responses/Unprocessable'}
+  /v1/reservation-preparations:
+    post:
+      operationId: prepareReservation
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
+      responses:
+        '200': {description: Preparation, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Preparation'}}}}
+        '409': {$ref: '#/components/responses/Conflict'}
+        '422': {$ref: '#/components/responses/Unprocessable'}
+  /v1/reservations:confirm:
+    post:
+      operationId: confirmReservation
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
+      responses:
+        '200': {description: Confirmation result, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/OperationResult'}}}}
+        '409': {$ref: '#/components/responses/Conflict'}
+        '422': {$ref: '#/components/responses/Unprocessable'}
+  /v1/reservations/{id}:
+    get:
+      operationId: getReservation
+      parameters: [{$ref: '#/components/parameters/ReservationId'}]
+      responses:
+        '200': {description: Reservation, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Reservation'}}}}
+        '404': {$ref: '#/components/responses/NotFound'}
+  /v1/reservations/{id}:modify:
+    post:
+      operationId: modifyReservation
+      parameters: [{$ref: '#/components/parameters/ReservationId'}, {$ref: '#/components/parameters/IdempotencyKey'}, {$ref: '#/components/parameters/IfMatch'}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/ExpectedVersionCommand'}}}}
+      responses:
+        '200': {description: Modified reservation, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Reservation'}}}}
+        '409': {$ref: '#/components/responses/Conflict'}
+        '412': {$ref: '#/components/responses/PreconditionFailed'}
+        '422': {$ref: '#/components/responses/Unprocessable'}
+        '428': {$ref: '#/components/responses/PreconditionRequired'}
+  /v1/reservations/{id}:cancel:
+    post:
+      operationId: cancelReservation
+      parameters: [{$ref: '#/components/parameters/ReservationId'}, {$ref: '#/components/parameters/IdempotencyKey'}, {$ref: '#/components/parameters/IfMatch'}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/ExpectedVersionCommand'}}}}
+      responses:
+        '200': {description: Cancelled reservation, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Reservation'}}}}
+        '409': {$ref: '#/components/responses/Conflict'}
+        '412': {$ref: '#/components/responses/PreconditionFailed'}
+        '422': {$ref: '#/components/responses/Unprocessable'}
+        '428': {$ref: '#/components/responses/PreconditionRequired'}
+components:
+  parameters:
+    ReservationId: {name: id, in: path, required: true, schema: {type: string, format: uuid}}
+    IdempotencyKey: {name: Idempotency-Key, in: header, required: true, schema: {type: string, minLength: 16, maxLength: 128}}
+    IfMatch: {name: If-Match, in: header, required: true, description: Strong ETag version; MUST equal body expectedVersion, schema: {type: string, pattern: '^"[1-9][0-9]*"$'}}
+  responses:
+    NotFound: {description: Not found, content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Error'}}}}
+    Conflict: {description: Allocation or state conflict (409), content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Error'}}}}
+    PreconditionFailed: {description: Stale or disagreeing version (412), content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Error'}}}}
+    Unprocessable: {description: Semantic validation failed (422), content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Error'}}}}
+    PreconditionRequired: {description: Expected version or If-Match absent (428), content: {application/json: {schema: {$ref: '../schemas/tablekeeper-contracts.schema.json#/$defs/Error'}}}}

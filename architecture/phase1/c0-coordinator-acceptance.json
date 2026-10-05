@@ -1,0 +1,46 @@
+{
+  "dispositionVersion": "1.0.0",
+  "dispositionType": "COORDINATOR_C0_ACCEPTANCE",
+  "recordedAt": "2026-09-30T07:29:54.5032836+08:00",
+  "architectureBaseline": "phase1-architecture-gate/1.0.0",
+  "contractRelease": "1.0.0",
+  "checkpoint": "C0",
+  "coordinatorVerdict": "ACCEPTED",
+  "formalChecklist": {
+    "passed": 14,
+    "total": 14
+  },
+  "successfulExecutionId": "tk-c0-20260929231956798-e8180c15",
+  "independentCoordinatorVerification": {
+    "executionArtifactsVerified": 56,
+    "executionArtifactsExpected": 56,
+    "w0PackageHashesVerified": 168,
+    "w0PackageHashesExpected": 168,
+    "postgresqlAssertionsVerified": 9,
+    "networkIsolationVerified": true,
+    "readOnlyRetentionVerified": true,
+    "preservedFailureAttemptsVerified": 4
+  },
+  "acceptedDigests": {
+    "architectureGateSha256": "3659c4ca8adac2a0b95fd65852a153cc53ea17414c003e6b4fcdad8738d01eb5",
+    "contractFreezeManifestSha256": "28f991adc85783bbd61aa4cc8704490001d0cdffdbab7d632ea895f7714e0e04",
+    "w0Sha256SumsSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec",
+    "executionEvidenceManifestSha256": "90c8af40e8b97d45fd7a551f1de29d5b378ed4a8cbad52e7ea29c5d97a6a1e76",
+    "executionEvidenceDigestFileSha256": "f403f06232235024d9dbfbb6cd10d3b43cddb06c18cae88da36d402b82e65002",
+    "postRecoveryVerificationSha256": "55c2ab77e1ffcad7fc3e4a5eda755125fa9d6eaa7cf40791225b7578e27634e7"
+  },
+  "baselineDisposition": "W0 release 1.0.0 is frozen as the Phase 1 implementation baseline. Any change requires explicit versioning, compatibility review, regenerated evidence, and a new gate disposition.",
+  "activationDisposition": {
+    "reservationCore": "AUTHORIZED",
+    "platformAndEvidence": "AUTHORIZED",
+    "experience": "DEFER_UNTIL_C1_API_STABILITY",
+    "aiLocalIntelligence": "DEFER",
+    "rag": "DEFER",
+    "replanning": "DEFER"
+  },
+  "limitations": [
+    "C0 accepts contract and reference-harness readiness; it does not certify application implementation.",
+    "Implementation-dependent proofs remain required at C1, C2, C4, and P0.",
+    "The Contract Steward manifest remains unchanged and hash-valid; this disposition resolves its coordinatorDisposition=PENDING externally by digest binding."
+  ]
+}

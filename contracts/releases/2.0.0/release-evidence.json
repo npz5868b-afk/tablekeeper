@@ -1,0 +1,14 @@
+{
+  "release": "2.0.0",
+  "predecessor": "1.0.0",
+  "scope": [
+    "POST /v1/availability/search request",
+    "POST /v1/reservation-preparations request and required confirmationToken response field",
+    "POST /v1/reservations:confirm request"
+  ],
+  "architectureApproval": {"status":"APPROVED","messageId":"b995c239-4365-4ebb-bbcf-5e38c06a1c7d"},
+  "coordinatorAuthorization": {"status":"AUTHORIZED","messageId":"1915d290-53d0-4219-a1c6-40a5223ab26c"},
+  "compatibility": {"classification":"BREAKING","policy":"Tablekeeper SemVer: a required body narrows accepted requests","evidence":"compat/1.0.0-to-2.0.0.breaking.json"},
+  "generated": ["generated/tablekeeper.ts","generated/tablekeeper.py","generated/SOURCE_SHA256"],
+  "hashManifest": "SHA256SUMS"
+}

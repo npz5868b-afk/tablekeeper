@@ -1,0 +1,28 @@
+{
+  "catalogueVersion": "1.0.0",
+  "component": "reservation_core",
+  "postgresqlMajor": 17,
+  "interfaceAddendumSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f",
+  "authoritativeConstraints": [
+    {"id":"C1A-ROLE-01","kind":"role","object":"reservation_core_migration","rule":"LOGIN; NOSUPERUSER; NOCREATEDB; NOCREATEROLE; NOINHERIT; NOREPLICATION; NOBYPASSRLS; owns migration objects only"},
+    {"id":"C1A-ROLE-02","kind":"role","object":"core_runtime","rule":"LOGIN; non-owner; NOSUPERUSER; NOCREATEDB; NOCREATEROLE; NOINHERIT; NOREPLICATION; NOBYPASSRLS; explicit grants only"},
+    {"id":"C1A-TENANT-01","kind":"rls","object":"all tenant-owned tables","rule":"RLS enabled and forced; tenant_id must equal transaction-local reservation_core.tenant_id"},
+    {"id":"C1A-GRANT-01","kind":"privilege","object":"reservation_core schema","rule":"PUBLIC has no schema, table, sequence, or function privileges; future objects default-deny PUBLIC"},
+    {"id":"C1A-ALLOC-01","kind":"exclusion","object":"reservation_allocations_no_overlap","rule":"active allocations for the same tenant and atomic resource cannot overlap on half-open occupied ranges"},
+    {"id":"C1A-ALLOC-02","kind":"unique","object":"reservation_allocations(tenant_id,reservation_id,resource_id)","rule":"one active allocation row identity per reservation and atomic resource"},
+    {"id":"C1A-GROUP-01","kind":"primary-key","object":"table_group_members","rule":"group membership is unique by tenant, group, group version, and atomic resource"},
+    {"id":"C1A-FK-01","kind":"foreign-key","object":"tenant-owned relationships","rule":"cross-aggregate references include tenant identity and cannot join to another tenant"},
+    {"id":"C1A-IDEM-01","kind":"unique","object":"idempotency_records(tenant_id,command_type,idempotency_key_digest)","rule":"one idempotency arbitration record per frozen scope"},
+    {"id":"C1A-IDEM-02","kind":"check","object":"idempotency_records","rule":"terminal rows have a result and finalized_at; IN_PROGRESS rows do not"},
+    {"id":"C1A-VERSION-01","kind":"check","object":"versioned aggregates","rule":"versions are integers greater than or equal to one"},
+    {"id":"C1A-STATE-01","kind":"check","object":"preparations.status","rule":"OPEN, CONSUMED, EXPIRED, or REVOKED only; consumed_at iff CONSUMED"},
+    {"id":"C1A-STATE-02","kind":"check","object":"reservations.status","rule":"CONFIRMED, CANCELLED, COMPLETED, or NO_SHOW only; cancelled_at iff CANCELLED"},
+    {"id":"C1A-POLICY-01","kind":"trigger","object":"policy_versions","rule":"published policy versions cannot be updated or deleted"},
+    {"id":"C1A-TERMS-01","kind":"trigger","object":"accepted_terms","rule":"accepted terms cannot be updated or deleted"},
+    {"id":"C1A-AUDIT-01","kind":"trigger","object":"domain_audit_records and command_attempts","rule":"audit and attempt records cannot be updated or deleted"},
+    {"id":"C1A-OUTBOX-01","kind":"unique","object":"outbox_events(tenant_id,command_id,event_type)","rule":"a logical command emits at most one event of a given type"},
+    {"id":"C1A-DIGEST-01","kind":"ledger","object":"schema_migrations","rule":"ordered migration ID, filename, SHA-256, contract graph SHA-256, actor, and time are immutable verification inputs"},
+    {"id":"C1A-HOURS-01","kind":"rls","object":"venue_service_hours","rule":"tenant-isolated recurring venue-local service windows gate availability"},
+    {"id":"C1A-HOURS-02","kind":"check","object":"venue_service_hours","rule":"day is 0..6 and opening time is before closing time"}
+  ]
+}

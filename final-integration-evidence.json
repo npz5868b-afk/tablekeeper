@@ -1,0 +1,49 @@
+{
+  "artifact": "tablekeeper-final-integration-evidence",
+  "version": "1.0.0",
+  "evidenceDate": "2026-10-02",
+  "timezone": "Asia/Kuala_Lumpur",
+  "verdict": "ACCEPT",
+  "repositoryState": {
+    "authority": "CURRENT_WORKSPACE_SNAPSHOT",
+    "gitProvenanceAvailable": false,
+    "note": "No commit, branch, clean-tree, or source-revision claim is made."
+  },
+  "automatedVerification": {
+    "externalInferenceCalls": 0,
+    "concierge": { "passed": 70, "failed": 0 },
+    "gonkaFocused": { "passed": 14, "failed": 0, "subsetOf": "concierge" },
+    "frontend": { "passed": 20, "failed": 0 },
+    "workspaceMjsSyntax": { "passed": 65, "failed": 0 },
+    "transport": "MOCKED_OR_IN_PROCESS"
+  },
+  "humanLiveAcceptance": {
+    "scope": "GONKA_T6_SEMANTIC_INTERPRETATION_ONLY",
+    "requestedModel": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "actualModel": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "status": "ACCEPTED",
+    "doesNotProve": [
+      "restaurant availability",
+      "retrieval",
+      "reservation operations",
+      "end-to-end booking"
+    ]
+  },
+  "historicalEvidence": {
+    "conciergePreGonka": { "passed": 44, "failed": 0 },
+    "status": "PRESERVED_AS_HISTORICAL_SUPERSEDED_CHECKPOINT"
+  },
+  "authorityBoundary": {
+    "languageModel": "UNTRUSTED_SEMANTIC_PROPOSAL_ONLY",
+    "intent": "LOCAL_VALIDATION_AND_DETERMINISTIC_REDUCER",
+    "readiness": "DETERMINISTIC",
+    "retrieval": "EVIDENCE_BEARING",
+    "filteringAndRanking": "DETERMINISTIC",
+    "reservation": "RESERVATION_CORE_ONLY"
+  },
+  "frozenBoundaries": [
+    "GONKA_LANGUAGE_UNDERSTANDING",
+    "DETERMINISTIC_RETRIEVAL_FILTERING_RANKING",
+    "RESERVATION_CORE"
+  ]
+}

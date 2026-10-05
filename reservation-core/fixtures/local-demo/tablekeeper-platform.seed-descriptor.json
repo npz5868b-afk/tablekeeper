@@ -1,0 +1,9 @@
+{
+  "descriptorVersion": "1.0.0",
+  "fixtureId": "tablekeeper-local-demo-platform-v4",
+  "fixturePath": "C:\\Users\\npz58\\Documents\\InvariantLabs\\platform\\restaurant-authority.json",
+  "fixtureSha256": "451f4cb0e0bff7164e1dc0e4466fc9e1aaedf1d138319715be646bab7d9883a6",
+  "randomSeed": "20261003",
+  "clockInstant": "2026-10-03T00:00:00.000Z",
+  "loaderBuildId": "reservation-core-local-demo-v4"
+}

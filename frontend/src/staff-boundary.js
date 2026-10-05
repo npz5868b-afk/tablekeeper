@@ -1,0 +1,3 @@
+export class StaffAccessError extends Error{constructor(message="Staff access failed",status=401){super(message);this.status=status}}
+async function json(path,init={}){const response=await fetch(path,{credentials:"same-origin",...init,headers:{...(init.body?{"content-type":"application/json"}:{}),...(init.headers||{})}});const body=await response.json().catch(()=>({}));if(!response.ok)throw new StaffAccessError(body.message,response.status);return body}
+export const staffBoundary={session:()=>json("/staff-auth/session"),login:(venueId,pin)=>json("/staff-auth/login",{method:"POST",body:JSON.stringify({venueId,pin})}),logout:()=>json("/staff-auth/logout",{method:"POST"})};

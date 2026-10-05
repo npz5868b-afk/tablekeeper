@@ -1,0 +1,45 @@
+# Dependencies
+**/node_modules/
+
+# Local configuration and credentials (keep examples)
+.env
+.env.*
+!.env.example
+!**/.env.example
+operator/secrets/
+
+# Runtime state and logs
+.tmp/
+tmp/
+operator/state/
+*.log
+*.pid
+*.pid.lock
+*.seed-result.json
+*.migration-result.json
+
+# Local and disposable PostgreSQL data
+pgdata/
+postgres-data/
+**/.postgres-data/
+**/pg-data/
+**/*test-db*/
+
+# Generated/disposable evidence and browser profiles
+evidence/generated/
+evidence/private/
+contracts/w0/recovery/evidence/
+**/.chrome-*/
+**/test-results/
+**/coverage/
+*.bak
+
+# Editor and operating-system artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+

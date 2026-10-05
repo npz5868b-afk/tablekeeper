@@ -1,0 +1,13 @@
+{
+  "requestedModel": "zai-org/GLM-5.3-Flash",
+  "response": {
+    "model": "MiniMaxAI/MiniMax-M2.7",
+    "choices": [
+      {
+        "message": {
+          "content": "<think>\nSanitized reasoning text.\n</think>\n\n```json\n{\"intentType\":\"CHANGE_CONSTRAINT\",\"operations\":[{\"operation\":\"REPLACE\",\"target\":\"SLOT\",\"key\":\"partySize\",\"value\":2,\"hardness\":null,\"provenance\":\"EXPLICIT\",\"confidence\":1,\"sourceText\":\"make that two\",\"weight\":null}],\"ambiguities\":[],\"contradictions\":[],\"candidateNextQuestion\":null}\n```"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "tool": "oasdiff",
+  "toolVersion": "1.11.7",
+  "baseline": "1.0.0",
+  "release": "2.0.0",
+  "classification": "BREAKING_BY_TABLEKEEPER_SEMVER_POLICY",
+  "reason": "Adding a required request body narrows formerly accepted bodyless requests.",
+  "changedEndpoints": [
+    "/v1/availability/search",
+    "/v1/reservation-preparations",
+    "/v1/reservations:confirm"
+  ],
+  "oasdiff": {
+    "info": {
+      "version": {
+        "from": "1.0.0",
+        "to": "2.0.0"
+      }
+    },
+    "paths": {
+      "modified": {
+        "/v1/availability/search": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "requestBody": {
+                  "added": true
+                }
+              }
+            }
+          }
+        },
+        "/v1/reservation-preparations": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "requestBody": {
+                  "added": true
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "content": {
+                        "modified": {
+                          "application/json": {
+                            "schema": {
+                              "required": {
+                                "added": [
+                                  "confirmationToken"
+                                ]
+                              },
+                              "properties": {
+                                "added": [
+                                  "confirmationToken"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/v1/reservations:confirm": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "requestBody": {
+                  "added": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

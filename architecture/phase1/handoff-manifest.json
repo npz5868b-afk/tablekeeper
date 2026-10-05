@@ -1,0 +1,95 @@
+{
+  "manifestVersion": "1.0.0",
+  "architectureBaseline": {
+    "id": "phase1-architecture-gate",
+    "version": "1.0.0",
+    "status": "APPROVED_ARCHITECTURE_BASELINE",
+    "effectiveDate": "2026-09-29",
+    "authority": "Systems Architect",
+    "normativePath": "architecture/phase1/architecture-gate.md"
+  },
+  "discoveryPath": "ARCHITECTURE.md",
+  "contractIds": {
+    "C01": "Shared primitives and command/query envelopes",
+    "C02": "Errors and lifecycle operation results",
+    "C03": "Availability and atomic allocation",
+    "C04": "Reservation preparation, confirmation token, and confirm",
+    "C05": "Reservation lifecycle, expected version, modify, and cancel",
+    "C06": "Immutable policy versions and accepted terms",
+    "C07": "Dining intent and deterministic typed tools",
+    "C08": "Intelligence modes and capability state",
+    "C09": "Retrieval, citation, and provenance",
+    "C10": "Replan proposal, validation, approval, and atomic apply",
+    "C11": "Audit, transactional outbox, and command-attempt ledger",
+    "C12": "Build-linked evidence manifest"
+  },
+  "architectureArtifacts": [
+    "ARCHITECTURE.md",
+    "architecture/phase1/architecture-gate.md",
+    "architecture/phase1/handoff-manifest.json",
+    "architecture/phase1/SHA256SUMS",
+    "plan.md",
+    "architecture.json"
+  ],
+  "contractCandidateArtifacts": [
+    "contracts/w0/README.md",
+    "contracts/w0/contract-registry.json",
+    "contracts/w0/schemas/tablekeeper-contracts.schema.json",
+    "contracts/w0/fixtures/valid.json",
+    "contracts/w0/fixtures/invalid.json",
+    "contracts/w0/openapi-strategy.md",
+    "contracts/w0/conformance.md",
+    "contracts/w0/ambiguities.md",
+    "contracts/w0/c0-checklist.md"
+  ],
+  "frozenDecisions": [
+    "C01-C12 numbering and meanings",
+    "preparation separate from reservation",
+    "reservation lifecycle and expected-version semantics",
+    "idempotency scope, RFC 8785 SHA-256 fingerprint, replay and concurrency",
+    "opaque authenticated confirmation token and commit-time revalidation",
+    "half-open buffered UTC occupancy and DST rules",
+    "versioned atomic table-group expansion",
+    "immutable policy versions and exact accepted terms",
+    "PostgreSQL RLS with separated service and migration roles",
+    "AI mode capability semantics",
+    "RAG isolation, temporal, ACL, citation and lexical Survival behavior",
+    "digest-bound replan validation and approval",
+    "transactional outbox plus command-attempt ledger",
+    "SHA-256 build-linked competition evidence",
+    "pinned deterministic contract toolchain"
+  ],
+  "benchmarkDependent": [
+    "local AI model, hardware sizing, quality/latency thresholds and recovery timing",
+    "embedding, index, fusion and reranker choices",
+    "replan solver/objective weights and performance limits",
+    "deployment retention durations",
+    "optional evidence signing trust root"
+  ],
+  "explicitNonGoals": [
+    "application feature implementation",
+    "database migration or service implementation",
+    "specialist activation",
+    "enterprise PKI or cross-region architecture",
+    "benchmark-dependent model selection"
+  ],
+  "knownRisks": [
+    "W0 schemas and fixtures do not yet encode all frozen semantics",
+    "contract toolchain is selected but not yet installed, locked, or executed",
+    "C0 remains FAIL until Contract Steward remediation and rerun",
+    "operational idempotency retention beyond the minimum requires deployment policy",
+    "benchmark deferrals require versioned results before production selection"
+  ],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "digestFile": "architecture/phase1/SHA256SUMS",
+    "scope": "normative architecture, handoff manifest, and reviewed W0 candidate artifacts",
+    "canonicalManifestEncoding": "UTF-8 JSON as checked in; digest covers exact bytes"
+  },
+  "gateDisposition": {
+    "architectureBlockersRemoved": true,
+    "readyForContractStewardRemediation": true,
+    "c0PassDeclared": false,
+    "nextAuthority": "Contract Steward reruns conformance and C0; Coordinator accepts gate outcome"
+  }
+}

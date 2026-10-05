@@ -1,0 +1,37 @@
+{
+  "auditVersion":"1.0.0",
+  "auditedAt":"2026-09-30T00:00:00+08:00",
+  "c0Status":"FAIL_UNCHANGED",
+  "attempt3":{"executionId":"tk-c0-20260929225249","dockerVersion":"PASS","nodePull":"PASS","pythonPull":"PASS","postgresPull":"PASS","nodeBuild":"INDETERMINATE_NATIVE_EXIT_NOT_CAPTURED","proofsStarted":false},
+  "fixedDefects":[
+    "cleanup could mask primary failure",
+    "PowerShell automatic args collision dropped Docker argv",
+    "Windows PowerShell 5.1 promoted informational native stderr to NativeCommandError",
+    "native exit code could be overwritten or never observed",
+    "stdout and stderr were not reliably retained",
+    "attempt logs reused a shared raw directory",
+    "fixed local image tags allowed repeated-run collision",
+    "prior evidence contaminated Docker build context",
+    "post-proof verification failure lacked a separate failure record",
+    "generated artifacts lacked required source-digest banners",
+    "network-control evidence did not cover internal PostgreSQL isolation",
+    "host verifier did not independently verify Docker network argv"
+  ],
+  "validation":{
+    "windowsPowerShell":"5.1",
+    "nativeHelperMock":"PASS",
+    "buildKitStderrExitZero":"PASS_CONTINUES",
+    "nonzeroNativeExit":"PASS_FAILS_BY_EXIT_CODE",
+    "fullHappyPathMock":"PASS",
+    "containerCreationFailureCleanup":"PASS",
+    "networkAlreadyAbsent":"PASS",
+    "cleanupFailureAfterSuccess":"PASS",
+    "primaryPlusCleanupFailure":"PASS_PRIMARY_PRESERVED",
+    "pathsWithSpaces":"PASS",
+    "repeatedExecutionIsolation":"PASS",
+    "partialEvidencePreservation":"PASS",
+    "staticProofFlowPreflight":"PASS",
+    "contractLint":"PASS",
+    "contractTests":{"passed":39,"failed":0}
+  }
+}

@@ -1,0 +1,11 @@
+extends:
+  - recommended
+rules:
+  no-empty-servers: off
+  operation-summary: off
+  info-license: off
+  no-server-example.com: off
+  operation-operationId: error
+  operation-4xx-response: error
+  security-defined: off
+  no-unused-components: off

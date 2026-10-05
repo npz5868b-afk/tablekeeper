@@ -1,0 +1,9 @@
+{
+  "descriptorVersion": "1.0.0",
+  "fixtureId": "tablekeeper-local-demo-kumo-dining-v3",
+  "fixturePath": "C:\\Users\\npz58\\Documents\\InvariantLabs\\reservation-core\\fixtures\\local-demo\\kumo-dining.fixture.json",
+  "fixtureSha256": "d2307738d1ab61a10aae20277b18fc0602f8739751aa92d84fd58f871f09fc0e",
+  "randomSeed": "20261003",
+  "clockInstant": "2026-10-03T00:00:00.000Z",
+  "loaderBuildId": "reservation-core-local-demo-v3"
+}

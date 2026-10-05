@@ -1,0 +1,164 @@
+{
+  "documentVersion": "1.0.0",
+  "generatedAt": "2026-09-30T04:26:59.707Z",
+  "result": "PASS",
+  "checks": {
+    "immutablePreflight": {
+      "documentVersion": "1.0.0",
+      "result": "PASS",
+      "contractGraphSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec",
+      "postgresImage": "postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+      "nodeImage": "node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+      "coreImage": "reservation-core:test@sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "observations": [
+        {
+          "type": "pin",
+          "path": "architecture/phase1/c0.5-integration-readiness.json",
+          "expectedSha256": "89c9809734d3bb657708836ddeb202257b42edc3503009a306c8c7f97f0c96b6",
+          "actualSha256": "89c9809734d3bb657708836ddeb202257b42edc3503009a306c8c7f97f0c96b6"
+        },
+        {
+          "type": "pin",
+          "path": "reservation-core/docs/c0.5-interface-addendum.md",
+          "expectedSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f",
+          "actualSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f"
+        },
+        {
+          "type": "pin",
+          "path": "architecture/phase1/architecture-gate.md",
+          "expectedSha256": "3659c4ca8adac2a0b95fd65852a153cc53ea17414c003e6b4fcdad8738d01eb5",
+          "actualSha256": "3659c4ca8adac2a0b95fd65852a153cc53ea17414c003e6b4fcdad8738d01eb5"
+        },
+        {
+          "type": "pin",
+          "path": "contracts/w0/contract-freeze-manifest.json",
+          "expectedSha256": "28f991adc85783bbd61aa4cc8704490001d0cdffdbab7d632ea895f7714e0e04",
+          "actualSha256": "28f991adc85783bbd61aa4cc8704490001d0cdffdbab7d632ea895f7714e0e04"
+        },
+        {
+          "type": "pin",
+          "path": "contracts/w0/SHA256SUMS",
+          "expectedSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec",
+          "actualSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec"
+        },
+        {
+          "type": "dependency-lock",
+          "path": "contracts/w0/package-lock.json",
+          "expectedSha256": "e33a6ae4b8b25c53f0dbdaf500380060697342f463104b1aa7c03403416145c9",
+          "actualSha256": "e33a6ae4b8b25c53f0dbdaf500380060697342f463104b1aa7c03403416145c9"
+        },
+        {
+          "type": "dependency-lock",
+          "path": "contracts/w0/requirements.lock",
+          "expectedSha256": "ad2794d239c2b2ce830be297d7f61c1d932fb2ea365369480825810cfde09178",
+          "actualSha256": "ad2794d239c2b2ce830be297d7f61c1d932fb2ea365369480825810cfde09178"
+        },
+        {
+          "type": "dependency-lock",
+          "path": "contracts/w0/recovery/requirements-linux.lock",
+          "expectedSha256": "85d1598b007c784db26997ea4ee571ff01ce35392902d7d60f41201f33c95109",
+          "actualSha256": "85d1598b007c784db26997ea4ee571ff01ce35392902d7d60f41201f33c95109"
+        },
+        {
+          "type": "dependency-lock",
+          "path": "contracts/w0/toolchain.json",
+          "expectedSha256": "6c2370d206557032c1f197c64647fa8759f68398a845e1d0b8f645eb90736403",
+          "actualSha256": "6c2370d206557032c1f197c64647fa8759f68398a845e1d0b8f645eb90736403"
+        }
+      ],
+      "failures": []
+    },
+    "negativeCapabilityTests": {
+      "result": "PASS",
+      "exitCode": 0,
+      "stdout": "✔ readiness fails closed for missing required check and digest mismatch (0.857ms)\n✔ failure injection is allowlisted and deterministic (0.9677ms)\n✔ compose denies public database exposure and evidence networking (5.4962ms)\n✔ projection verifies digests, prefixes paths, and retains immutable output (27.6748ms)\n✔ projection rejects path traversal (6.3674ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 126.8204\n",
+      "stderr": ""
+    },
+    "dockerBoundary": {
+      "result": "AVAILABLE",
+      "exitCode": 0,
+      "stdout": "29.8.1\n",
+      "stderr": ""
+    },
+    "composeConfig": {
+      "result": "PASS",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "lockedLocalImages": [
+      {
+        "reference": "postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+        "result": "PASS",
+        "exitCode": 0,
+        "observedRepoDigests": "[\"postgres@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652\"]",
+        "stderr": ""
+      },
+      {
+        "reference": "node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+        "result": "PASS",
+        "exitCode": 0,
+        "observedRepoDigests": "[\"node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c\"]",
+        "stderr": ""
+      }
+    ],
+    "externalReservationCoreImage": {
+      "result": "BLOCKED",
+      "reason": "C2A correctly requires a W1-built digest-pinned image; no placeholder image was created."
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "platform/compose.c2.yaml",
+      "sha256": "f327a83071c26afff9d2186c708e9553013cf7f336b1e46b7432c5667919744e"
+    },
+    {
+      "path": "platform/evidence/project.mjs",
+      "sha256": "306bf9f759ef164655a41b36d680fb776e8c369713cd672b7660281126359fdd"
+    },
+    {
+      "path": "platform/evidence/verify.mjs",
+      "sha256": "cb3f5e89014900390e6536a97fcd285e84bf60e330800aab2035eed8c0a038b0"
+    },
+    {
+      "path": "platform/failure-injection/control.mjs",
+      "sha256": "e942c92e6a90123e6a065252b422cb07bd4d1cfc19a374d0bdc7d632a3bfc3fb"
+    },
+    {
+      "path": "platform/images.lock.json",
+      "sha256": "8153c780e367e221469c01165f7b24b3cd4b355fb26e0a7f22a6d74dff9abc09"
+    },
+    {
+      "path": "platform/readiness/gate.mjs",
+      "sha256": "7fcd4552f8205580ec6666f61d13971b9f21e101231ad46d6c490490b5f01892"
+    },
+    {
+      "path": "platform/runtime/common.mjs",
+      "sha256": "7dc7e63f844fa1aba2196282b781380702db415158e28ad95f6bfeda10c4edd9"
+    },
+    {
+      "path": "platform/runtime/core-secret-entrypoint.sh",
+      "sha256": "f061b441ec238787764a5656da6541ee77161305e53c2790fbee79e018ac9531"
+    },
+    {
+      "path": "platform/runtime/orchestrate.mjs",
+      "sha256": "f550fc6975a636ba72b54b6c4a72c5935d30d36f59d163ecfa63f7e2cb8ba775"
+    },
+    {
+      "path": "platform/runtime/preflight.mjs",
+      "sha256": "4cc7581fb2ea8ec43a6f6ac006fad5b2e1ffe81fff1859802c2c963d29f3ca02"
+    },
+    {
+      "path": "platform/runtime/probe-network-none.mjs",
+      "sha256": "6c6396c30f655500f3c1e79322e3d8cbfc5248c9f3ebeeee390f09fc9e8f4c41"
+    },
+    {
+      "path": "platform/tests/platform.test.mjs",
+      "sha256": "057cac04a4b06880224514190aa66221870cd62558685bd71ece480f05aace62"
+    },
+    {
+      "path": "platform/tests/validate.mjs",
+      "sha256": "a3cfebe97009bf99f095352548a3b3a477a804e9f64002cd3d3268c9c383379d"
+    }
+  ]
+}

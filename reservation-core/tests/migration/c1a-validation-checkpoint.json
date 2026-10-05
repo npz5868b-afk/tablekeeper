@@ -1,0 +1,37 @@
+{
+  "documentVersion": "1.0.0",
+  "component": "reservation_core",
+  "checkpoint": "C1A",
+  "recordedAt": "2026-09-30T04:24:41.171Z",
+  "interfaceAddendumSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f",
+  "manifestSha256": "cad75acd23141de6d47b5075882126a2490e0a3993b534073dd6e12f423b009d",
+  "constraintCatalogueSha256": "6be744bd4a21c5a018d6b03110c1d58a5e7b2c5b16249b8703c0e054449bb83c",
+  "validation": [
+    {
+      "name": "static-migration-tests",
+      "result": "PASS",
+      "observedFact": "6 tests passed, 0 failed"
+    },
+    {
+      "name": "node-syntax",
+      "result": "PASS",
+      "observedFact": "reservation-core.mjs passed node --check"
+    },
+    {
+      "name": "json-parsing",
+      "result": "PASS",
+      "observedFact": "manifest, constraint catalogue, and migration result schema parsed successfully"
+    },
+    {
+      "name": "powershell-harness-parsing",
+      "result": "PASS",
+      "observedFact": "run-postgres17.ps1 parsed without errors"
+    },
+    {
+      "name": "postgresql17-integration",
+      "result": "BLOCKED",
+      "observedFact": "Docker and psql executables are unavailable on this host"
+    }
+  ],
+  "gateRecommendation": "HOLD_PENDING_POSTGRESQL17_INTEGRATION_PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "documentVersion": "1.0.0",
+  "operation": "apply",
+  "result": "PASS",
+  "fixtureId": "tablekeeper-local-demo-kumo-dining-v3",
+  "descriptorSha256": "681d4f0f07101e8b954905e8a57be34dfee5bd37fb986de0b5a22da4e1456469",
+  "fixtureSha256": "d2307738d1ab61a10aae20277b18fc0602f8739751aa92d84fd58f871f09fc0e",
+  "loaderBuildId": "reservation-core-local-demo-v3",
+  "migrationHead": "0003_rls_privileges_immutability",
+  "randomSeed": "20261003",
+  "clockInstant": "2026-10-03T00:00:00.000Z",
+  "startedAt": "2026-10-03T10:13:16.894Z",
+  "finishedAt": "2026-10-03T10:13:17.084Z",
+  "observedCounts": {
+    "tenants": 1,
+    "venues": 1,
+    "resources": 2,
+    "groups": 2,
+    "policies": 1
+  }
+}

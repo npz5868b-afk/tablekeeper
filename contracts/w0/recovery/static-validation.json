@@ -1,0 +1,17 @@
+{
+  "validatedAt": "2026-09-29T14:45:00Z",
+  "scope": "non-Docker validation available in Contract Steward runtime",
+  "results": {
+    "jsonParse": "PASS",
+    "schemaOpenApiLint": "PASS",
+    "fixtureAndSemanticTests": {"status":"PASS","passed":39,"failed":0},
+    "nodeScriptSyntax": "PASS",
+    "pythonScriptSyntax": "PASS",
+    "powershellScriptParse": "PASS",
+    "canonicalParityAlgorithmSmokeTest": "PASS_NON_PINNED_NOT_C0_EVIDENCE",
+    "linuxPythonHashLockStructure": "PASS",
+    "dockerBuildAndExecution": "NOT_RUN_HOST_EXECUTION_REQUIRED",
+    "postgresqlProof": "NOT_RUN_HOST_EXECUTION_REQUIRED",
+    "c0StatusChanged": false
+  }
+}

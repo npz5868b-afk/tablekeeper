@@ -1,0 +1,9 @@
+{
+  "resolvedAt": "2026-09-29",
+  "platform": "linux/amd64",
+  "images": {
+    "node22": {"reference":"node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c","platformDigest":"sha256:25330af3531fb5e23318554a0aa911125b6e91b1b777edf7655501d207c067a2"},
+    "python312": {"reference":"python:3.12-slim-bookworm@sha256:392307d22300de8b5986851a12d9176dfc0fc073e65bf6523ebd7dcbeb23564e","platformDigest":"sha256:1aaa65a85fda306ffb8b910824d4e93bdce61e212c7e87168123ea3073b41a1a"},
+    "postgres17": {"reference":"postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652","platformDigest":"sha256:91eb910c44c7ed13f7f1a4ccadaa9ca72ef14cddc04cacb6e070e48eb44731a3"}
+  }
+}

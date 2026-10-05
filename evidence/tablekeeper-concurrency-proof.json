@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "observedAt": "2026-10-04T17:05:58.482Z",
+  "revision": null,
+  "environment": {
+    "node": "v24.14.1",
+    "platform": "win32-x64",
+    "postgresql": "17.11",
+    "databaseHost": "127.0.0.1",
+    "databasePort": 55433,
+    "databaseName": "postgres",
+    "isolatedDisposable": true
+  },
+  "scenario": {
+    "concurrency": 50,
+    "venueId": "20000000-0000-4000-8000-000000000003",
+    "partySize": 8,
+    "requestedRange": {
+      "start": "2026-10-10T11:00:00.000Z",
+      "end": "2026-10-10T12:30:00.000Z"
+    },
+    "sharedCandidateId": "32d32a24-d720-5a9c-8ea3-2f255e53aabf",
+    "sharedResourceIds": [
+      "875457d8-0a7a-428f-a35c-0f5a405fe3d5"
+    ],
+    "authoritativePath": "HTTP C03 SEARCH -> C04 PREPARE -> C04 CONFIRM -> PostgreSQL",
+    "raceDurationMs": 1252.8
+  },
+  "observed": {
+    "initial": {
+      "confirmed_reservations": 0,
+      "active_conflicting_allocations": 0
+    },
+    "race": {
+      "attempts": 50,
+      "successfulConfirmations": 1,
+      "conflictingRejections": 49,
+      "internalOr5xxFailures": 0,
+      "classifications": {
+        "200:SUCCESS": 1,
+        "409:CONFLICT_ALLOCATION": 46,
+        "409:CONFLICT_STATE": 3
+      }
+    },
+    "postRace": {
+      "confirmed_reservations": 1,
+      "active_conflicting_allocations": 1
+    },
+    "retry": {
+      "attempts": 50,
+      "internalOr5xxFailures": 0,
+      "classifications": {
+        "200:SUCCESS": 1,
+        "409:CONFLICT_ALLOCATION": 49
+      }
+    },
+    "postRetry": {
+      "confirmed_reservations": 1,
+      "active_conflicting_allocations": 1
+    },
+    "finalPersistedProof": {
+      "overlappingActiveAllocationPairs": 0
+    }
+  },
+  "inferred": {
+    "statement": "At most one authoritative conflicting allocation survived, and exact retries created no additional reservation.",
+    "basis": "Observed persisted counts, exclusion-constrained allocation rows, retry readback, and zero overlapping active allocation pairs."
+  },
+  "secondaryProof": {
+    "reservationCoreNonDestructive": {"passed": 62, "failed": 0},
+    "postgresIntegration": {"passed": 5, "failed": 0},
+    "canonicalVenueParity": {"passed": 24, "total": 24},
+    "note": "The PostgreSQL integration proof was run in a second freshly migrated and seeded disposable database."
+  },
+  "proofHarnessFinding": {
+    "classification": "STALE_TEST_ASSUMPTION",
+    "productionDefect": false,
+    "detail": "The first parity run expected venue/resource UUIDs from a guest-safe projection that intentionally no longer exposes them. The integration proof was updated to inspect allocations through a tenant-scoped authoritative database read; production behavior was not changed."
+  },
+  "finalPersistedQuery": {
+    "sql": "SELECT count(DISTINCT r.reservation_id) FILTER (WHERE r.status='CONFIRMED'), count(DISTINCT a.allocation_id) FILTER (WHERE a.released_at IS NULL) FROM reservation_core.reservations r LEFT JOIN reservation_core.reservation_allocations a ON a.tenant_id=r.tenant_id AND a.reservation_id=r.reservation_id WHERE r.tenant_id=$1 AND r.venue_id=$2 AND tstzrange(r.starts_at,r.ends_at,'[)') && tstzrange($3::timestamptz,$4::timestamptz,'[)');",
+    "observed": [1,1]
+  },
+  "reproduction": {
+    "precondition": "Use a fresh PostgreSQL 17 cluster/database only; never point these commands at the retained demo database.",
+    "commands": [
+      "initdb -D <isolated-data-dir> -U postgres --auth=trust --encoding=UTF8 --no-locale",
+      "pg_ctl -D <isolated-data-dir> -l <isolated-log> -o \"-p 55433 -h 127.0.0.1\" start",
+      "$env:TK_PROOF_BOOTSTRAP_DATABASE_URL='postgresql://postgres@127.0.0.1:55433/postgres'; reservation-core\\bin\\reservation-core.cmd migrate --mode up --database-url-env TK_PROOF_BOOTSTRAP_DATABASE_URL --migrations <absolute-migrations-path> --expected-contract-graph-sha256 <sha256-of-contract-registry> --output proof-migration-result.json",
+      "$env:TK_PROOF_DATABASE_URL='postgresql://core_runtime@127.0.0.1:55433/postgres'; reservation-core\\bin\\reservation-core.cmd seed --database-url-env TK_PROOF_DATABASE_URL --descriptor <absolute-tablekeeper-platform-seed-descriptor> --mode apply --output proof-seed-result.json",
+      "$env:TK_PROOF_ALLOW_DISPOSABLE='YES'; node reservation-core/tests/integration/concurrency-50-proof.mjs evidence/tablekeeper-concurrency-proof.json",
+      "npm.cmd test --prefix reservation-core",
+      "$env:TK_INTEGRATION_DATABASE_URL='<fresh-disposable-parity-database-url>'; npm.cmd run test:postgres --prefix reservation-core"
+    ]
+  },
+  "result": "PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "node": "22 LTS",
+  "python": "3.12",
+  "jsonSchema": "2020-12",
+  "tools": {
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "@apidevtools/json-schema-ref-parser": "16.0.3",
+    "@redocly/cli": "2.53.3",
+    "openapi-typescript": "7.13.0",
+    "datamodel-code-generator": "0.52.0",
+    "oasdiff": "1.11.7"
+  },
+  "install": {
+    "node": "npm ci --ignore-scripts",
+    "python": "python3.12 -m pip install --require-hashes -r requirements.lock",
+    "oasdiff": "verify SHA256 from oasdiff.sha256 before execution"
+  },
+  "networkDuringExecution": false
+}

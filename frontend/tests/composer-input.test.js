@@ -1,0 +1,3 @@
+import test from"node:test";import assert from"node:assert/strict";import{shouldSubmitComposer}from"../src/composer-input.js";
+test("Enter submits valid composer text",()=>assert.equal(shouldSubmitComposer({key:"Enter",shiftKey:false,isComposing:false},"Dinner"),true));
+test("Shift+Enter, IME, whitespace, and in-flight turns do not submit",()=>{assert.equal(shouldSubmitComposer({key:"Enter",shiftKey:true,isComposing:false},"Dinner"),false);assert.equal(shouldSubmitComposer({key:"Enter",shiftKey:false,isComposing:true},"Dinner"),false);assert.equal(shouldSubmitComposer({key:"Enter",shiftKey:false,isComposing:false},"   "),false);assert.equal(shouldSubmitComposer({key:"Enter",shiftKey:false,isComposing:false},"Dinner",true),false)});

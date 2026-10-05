@@ -1,0 +1,14 @@
+.git
+.gitignore
+**/node_modules
+.tmp
+operator/secrets
+operator/state
+**/.chrome-*
+**/test-results
+**/coverage
+*.log
+*.pid
+*.bak
+contracts/w0/recovery/evidence
+

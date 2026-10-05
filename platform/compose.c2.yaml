@@ -1,0 +1,119 @@
+name: tablekeeper-c2
+
+x-core-common: &core-common
+  image: ${TK_CORE_IMAGE:?TK_CORE_IMAGE must be a digest-pinned Reservation Core image}
+  pull_policy: never
+  restart: "no"
+  networks: [database_internal]
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  tmpfs: [/tmp:rw,noexec,nosuid,nodev,size=64m]
+  volumes:
+    - ${TK_STAGING_DIR:?TK_STAGING_DIR must be an absolute fresh staging directory}:/evidence/staging/reservation-core
+
+services:
+  postgres:
+    image: ${TK_POSTGRES_IMAGE:?TK_POSTGRES_IMAGE must be the locked PostgreSQL 17 image}
+    pull_policy: never
+    restart: "no"
+    environment:
+      POSTGRES_DB: tablekeeper
+      POSTGRES_USER: bootstrap_admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_bootstrap_password
+    secrets: [postgres_bootstrap_password]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U bootstrap_admin -d tablekeeper"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+    networks: [database_internal]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    ports: []
+
+  migration:
+    <<: *core-common
+    profiles: [core-operations]
+    depends_on:
+      postgres: {condition: service_healthy}
+    entrypoint: [/platform/runtime/core-secret-entrypoint.sh]
+    command: [/app/bin/reservation-core, migrate, --mode, up, --database-url-env, TK_DATABASE_URL, --migrations, /app/db/migrations, --expected-contract-graph-sha256, "${TK_CONTRACT_GRAPH_SHA256:?}", --output, /evidence/staging/reservation-core/migration.json]
+    environment:
+      TK_DATABASE_URL_FILE: /run/secrets/reservation_core_migration_url
+    secrets: [reservation_core_migration_url]
+    volumes:
+      - ./runtime/core-secret-entrypoint.sh:/platform/runtime/core-secret-entrypoint.sh:ro
+      - ${TK_STAGING_DIR:?}:/evidence/staging/reservation-core
+
+  readiness:
+    <<: *core-common
+    profiles: [core-operations]
+    depends_on:
+      postgres: {condition: service_healthy}
+    entrypoint: [/platform/runtime/core-secret-entrypoint.sh]
+    command: [/app/bin/reservation-core, readiness, --database-url-env, TK_DATABASE_URL, --expected-contract-graph-sha256, "${TK_CONTRACT_GRAPH_SHA256:?}", --output, /evidence/staging/reservation-core/readiness.json]
+    environment:
+      TK_DATABASE_URL_FILE: /run/secrets/core_runtime_url
+    secrets: [core_runtime_url]
+    volumes:
+      - ./runtime/core-secret-entrypoint.sh:/platform/runtime/core-secret-entrypoint.sh:ro
+      - ${TK_STAGING_DIR:?}:/evidence/staging/reservation-core
+
+  seed:
+    <<: *core-common
+    profiles: [core-operations]
+    entrypoint: [/platform/runtime/core-secret-entrypoint.sh]
+    command: [/app/bin/reservation-core, seed, --database-url-env, TK_DATABASE_URL, --descriptor, "${TK_SEED_DESCRIPTOR_CONTAINER_PATH:?}", --mode, apply, --output, /evidence/staging/reservation-core/seed-result.json]
+    environment:
+      TK_DATABASE_URL_FILE: /run/secrets/core_runtime_url
+    secrets: [core_runtime_url]
+    volumes:
+      - ./runtime/core-secret-entrypoint.sh:/platform/runtime/core-secret-entrypoint.sh:ro
+      - ${TK_STAGING_DIR:?}:/evidence/staging/reservation-core
+      - ${TK_SEED_INPUT_DIR:?}:/fixtures/c2:ro
+
+  prove:
+    <<: *core-common
+    profiles: [core-operations]
+    entrypoint: [/platform/runtime/core-secret-entrypoint.sh]
+    command: [/app/bin/reservation-core, prove, --suite, "${TK_PROOF_SUITE:-c1-reservation-db}", --database-url-env, TK_DATABASE_URL, --seed-descriptor, "${TK_SEED_DESCRIPTOR_CONTAINER_PATH:?}", --execution-id, "${TK_EXECUTION_ID:?}", --build-id, "${TK_BUILD_ID:?}", --output-directory, /evidence/staging/reservation-core/proofs]
+    environment:
+      TK_DATABASE_URL_FILE: /run/secrets/core_runtime_url
+    secrets: [core_runtime_url]
+    volumes:
+      - ./runtime/core-secret-entrypoint.sh:/platform/runtime/core-secret-entrypoint.sh:ro
+      - ${TK_STAGING_DIR:?}:/evidence/staging/reservation-core
+
+  evidence-projector:
+    image: ${TK_NODE_IMAGE:?TK_NODE_IMAGE must be the locked Node.js 22 image}
+    pull_policy: never
+    restart: "no"
+    profiles: [evidence]
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp:rw,noexec,nosuid,nodev,size=32m]
+    working_dir: /workspace
+    command: [node, /platform/evidence/project.mjs, --staging, /evidence/staging/reservation-core/proofs, --output, /evidence/final, --environment-digest, "${TK_ENVIRONMENT_DIGEST:?}"]
+    volumes:
+      - ./evidence:/platform/evidence:ro
+      - ./runtime:/platform/runtime:ro
+      - ${TK_STAGING_DIR:?}:/evidence/staging/reservation-core:ro
+      - ${TK_FINAL_EVIDENCE_DIR:?TK_FINAL_EVIDENCE_DIR must be an absolute empty directory}:/evidence/final
+      - ${TK_SEED_INPUT_DIR:?}:/fixtures/c2:ro
+
+networks:
+  database_internal:
+    internal: true
+    driver: bridge
+volumes:
+  postgres_data:
+secrets:
+  postgres_bootstrap_password:
+    file: ${TK_POSTGRES_BOOTSTRAP_PASSWORD_FILE:?}
+  reservation_core_migration_url:
+    file: ${TK_MIGRATION_DATABASE_URL_FILE:?}
+  core_runtime_url:
+    file: ${TK_RUNTIME_DATABASE_URL_FILE:?}

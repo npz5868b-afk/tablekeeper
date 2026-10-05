@@ -1,0 +1,27 @@
+{
+  "manifestVersion": "1.0.0",
+  "postgresqlMajor": 17,
+  "interfaceAddendumSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f",
+  "migrations": [
+    {
+      "id": "0001_roles_ledger",
+      "up": {"file": "0001_roles_ledger.up.sql", "sha256": "4336965d751f50f3b038d5598df551d2015c307bae50be75fc2fac4da1bf6d25"},
+      "down": {"file": "0001_roles_ledger.down.sql", "sha256": "7f6a7523a837175069fc6acae89a81f64bb8a0fbfa2ed15d6f7d21ac5a27e63e"}
+    },
+    {
+      "id": "0002_core_tables",
+      "up": {"file": "0002_core_tables.up.sql", "sha256": "c0fc0e7c886b3e9022b2c1f755399c196f7e52c423402ca2621ea88270b09b3b"},
+      "down": {"file": "0002_core_tables.down.sql", "sha256": "ac611be521dba3a9e2ce214adb68bba62a373f5ec537142e135719d9d0a1c40f"}
+    },
+    {
+      "id": "0003_rls_privileges_immutability",
+      "up": {"file": "0003_rls_privileges_immutability.up.sql", "sha256": "2b527096c7e4672efb77f77b2373ce163e0fbbe65f7e2ade3545fac99738c3ed"},
+      "down": {"file": "0003_rls_privileges_immutability.down.sql", "sha256": "d719e174dd258fb2fb4f97df02f9d207f260b8aff87815cf2dffc67ac92815d4"}
+    },
+    {
+      "id": "0004_venue_service_hours",
+      "up": {"file": "0004_venue_service_hours.up.sql", "sha256": "1cf047dcc8abdf941db1205ca88c33e0c74288945472f34ed42303c96d2cf9ce"},
+      "down": {"file": "0004_venue_service_hours.down.sql", "sha256": "e402ed15f76e526a7022f42cf2162c9cf9605d64dd68cbea4ea81b30f188510d"}
+    }
+  ]
+}

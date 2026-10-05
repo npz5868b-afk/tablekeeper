@@ -1,0 +1,17 @@
+SET ROLE reservation_core_migration;
+DROP TABLE IF EXISTS reservation_core.command_attempts;
+DROP TABLE IF EXISTS reservation_core.outbox_events;
+DROP TABLE IF EXISTS reservation_core.domain_audit_records;
+DROP TABLE IF EXISTS reservation_core.idempotency_records;
+DROP TABLE IF EXISTS reservation_core.accepted_terms;
+DROP TABLE IF EXISTS reservation_core.reservation_allocations;
+DROP TABLE IF EXISTS reservation_core.reservations;
+DROP TABLE IF EXISTS reservation_core.preparations;
+DROP TABLE IF EXISTS reservation_core.policy_versions;
+DROP TABLE IF EXISTS reservation_core.table_group_members;
+DROP TABLE IF EXISTS reservation_core.table_groups;
+DROP TABLE IF EXISTS reservation_core.table_resources;
+DROP TABLE IF EXISTS reservation_core.service_periods;
+DROP TABLE IF EXISTS reservation_core.venues;
+DROP TABLE IF EXISTS reservation_core.tenants;
+RESET ROLE;

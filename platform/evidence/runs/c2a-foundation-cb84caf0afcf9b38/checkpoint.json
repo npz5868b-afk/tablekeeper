@@ -1,0 +1,9 @@
+{
+  "documentVersion": "1.0.0",
+  "package": "C2A",
+  "result": "PASS",
+  "validationReport": "raw/c2a-validation-v2.json",
+  "validationReportSha256": "cb84caf0afcf9b3816f63f5945974858589b4d1b260850c85677778f33f0d3bb",
+  "scope": "platform runtime and evidence foundation",
+  "liveCoreExecution": "DEFERRED_EXTERNAL_W1_IMAGE"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:tablekeeper:reservation-core:migration-result:v1",
+  "title": "Reservation Core migration-result/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentVersion", "operation", "result", "postgresqlMajor", "migrationHead", "appliedMigrations", "contractGraphSha256", "startedAt", "finishedAt"],
+  "properties": {
+    "documentVersion": {"const": "1.0.0"},
+    "operation": {"enum": ["up", "verify", "down"]},
+    "result": {"enum": ["PASS", "FAIL"]},
+    "postgresqlMajor": {"const": 17},
+    "migrationHead": {"type": ["string", "null"]},
+    "appliedMigrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["migrationId", "fileName", "fileSha256"],
+        "properties": {
+          "migrationId": {"type": "string"},
+          "fileName": {"type": "string"},
+          "fileSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "contractGraphSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "startedAt": {"type": "string", "format": "date-time"},
+    "finishedAt": {"type": "string", "format": "date-time"},
+    "failureCode": {"type": "string"}
+  }
+}

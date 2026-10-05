@@ -1,0 +1,16 @@
+{
+  "verificationVersion":"1.0.0",
+  "verifiedAt":"2026-09-30T00:00:00+08:00",
+  "executionId":"tk-c0-20260929231956798-e8180c15",
+  "result":"PASS",
+  "independentHostVerifier":"PASS",
+  "manifestArtifacts":{"count":56,"hashes":"PASS","readOnlyRetention":"PASS"},
+  "nativeCommandRecords":{"proofAndCleanupExitCodes":"PASS","postgresReadinessRetries":"EXPECTED_NONZERO_THEN_PASS"},
+  "node22":{"runtime":"v22.23.3","doubleGenerationSha256":"0efa9563f82ccd24798bbf66dd5c30e3659f3a7544797adcb5c3b2692b11c9da","deterministic":true},
+  "python312":{"runtime":"3.12.14","doubleGenerationSha256":"b651fd4b5be9ee010a87e6f3277a85b008e5cb06a0d5d83c695a2b6048f6d8bd","deterministic":true},
+  "crossRuntimeParity":{"fixtureCountPerRuntime":12,"canonicalSha256":"a42ef57c0e9f652778de26a60868153023d8e35c16215d88b80eba4b81d6d4f0","result":"PASS"},
+  "postgres17":{"result":"PASS","assertions":{"allocationExclusion":true,"groupAllocationAtomicity":true,"idempotencySameKeyReplay":true,"idempotencyMismatchRejected":true,"outboxAtomicity":true,"rlsReadIsolation":true,"rlsJoinIsolation":true,"rlsWriteIsolation":true,"pooledContextReset":true}},
+  "networkControls":{"node":"DOCKER_NETWORK_NONE","python":"DOCKER_NETWORK_NONE","postgres":"DOCKER_INTERNAL_NETWORK","result":"PASS"},
+  "operatorPatch":{"invariantImpact":"NONE","falseAssertionExitNonzero":"PASS","allTrueExitZero":"PASS"},
+  "preservedAttempts":["tk-c0-20260929224205","tk-c0-20260929224716","tk-c0-20260929225249","tk-c0-20260929231155095-136558a8"]
+}

@@ -1,0 +1,22 @@
+{
+  "documentVersion": "1.0.0",
+  "operation": "apply",
+  "result": "PASS",
+  "fixtureId": "tablekeeper-local-demo-platform-v4",
+  "descriptorSha256": "b6d1ef514000a69adfdea654344165ad5a5247cd5b30b1e761c1dc60415e11ca",
+  "fixtureSha256": "451f4cb0e0bff7164e1dc0e4466fc9e1aaedf1d138319715be646bab7d9883a6",
+  "loaderBuildId": "reservation-core-local-demo-v4",
+  "migrationHead": "0004_venue_service_hours",
+  "randomSeed": "20261003",
+  "clockInstant": "2026-10-03T00:00:00.000Z",
+  "startedAt": "2026-10-04T09:31:38.017Z",
+  "finishedAt": "2026-10-04T09:31:38.371Z",
+  "observedCounts": {
+    "tenants": 1,
+    "venues": 24,
+    "resources": 97,
+    "groups": 97,
+    "policies": 24,
+    "serviceHours": 158
+  }
+}

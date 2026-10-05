@@ -1,0 +1,11 @@
+{
+  "name": "tablekeeper-guest",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node start-local.mjs",
+    "dev:frontend-only": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check start-local.mjs && node --check staff-session.mjs && node --check src/navigation.js && node --check src/screen01-concierge.js && node --check src/composer-input.js && node --check src/reservation-selection.js && node --check src/dining-placement-state.js && node --check src/v3-experience.js && node --check src/championship-experience.js && node --check src/staff-venue-directory.js && node --check src/staff-boundary.js && node --check src/operations-boundary.js && node --check src/reservation-boundary.js && node --check src/reservation-presentation.js && node --check src/staff-floor-intelligence.js && node --check src/reservation-experience.js && node --test"
+  }
+}

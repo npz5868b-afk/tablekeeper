@@ -1,0 +1,33 @@
+{
+  "lockVersion": "1.0.0",
+  "platform": "linux/amd64",
+  "generatedFrom": "contracts/w0/recovery/images.json",
+  "pins": {
+    "c0_5IntegrationReadinessSha256": "89c9809734d3bb657708836ddeb202257b42edc3503009a306c8c7f97f0c96b6",
+    "interfaceAddendumSha256": "7954f152760ac0866250507803198cc42115e398664f26f47f05c420d2a4891f",
+    "architectureGateSha256": "3659c4ca8adac2a0b95fd65852a153cc53ea17414c003e6b4fcdad8738d01eb5",
+    "contractFreezeManifestSha256": "28f991adc85783bbd61aa4cc8704490001d0cdffdbab7d632ea895f7714e0e04",
+    "contractGraphSha256": "70167f82812a4ccef11b76f4d358b90374aa34dc38d977c5bff487315d1ea3ec"
+  },
+  "images": {
+    "postgres17": {
+      "reference": "postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+      "platformDigest": "sha256:91eb910c44c7ed13f7f1a4ccadaa9ca72ef14cddc04cacb6e070e48eb44731a3"
+    },
+    "node22": {
+      "reference": "node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+      "platformDigest": "sha256:25330af3531fb5e23318554a0aa911125b6e91b1b777edf7655501d207c067a2"
+    },
+    "reservationCore": {
+      "referenceEnvironment": "TK_CORE_IMAGE",
+      "requiredPattern": "^[a-z0-9][a-z0-9._/-]*(?::[a-zA-Z0-9._-]+)?@sha256:[0-9a-f]{64}$",
+      "status": "REQUIRED_EXTERNAL_W1_BUILD"
+    }
+  },
+  "dependencyLocks": [
+    {"path": "contracts/w0/package-lock.json", "sha256": "e33a6ae4b8b25c53f0dbdaf500380060697342f463104b1aa7c03403416145c9"},
+    {"path": "contracts/w0/requirements.lock", "sha256": "ad2794d239c2b2ce830be297d7f61c1d932fb2ea365369480825810cfde09178"},
+    {"path": "contracts/w0/recovery/requirements-linux.lock", "sha256": "85d1598b007c784db26997ea4ee571ff01ce35392902d7d60f41201f33c95109"},
+    {"path": "contracts/w0/toolchain.json", "sha256": "6c2370d206557032c1f197c64647fa8759f68398a845e1d0b8f645eb90736403"}
+  ]
+}

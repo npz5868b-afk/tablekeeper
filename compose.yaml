@@ -1,0 +1,54 @@
+name: tablekeeper-judge
+
+services:
+  postgres:
+    image: postgres:17
+    restart: "no"
+    environment:
+      POSTGRES_DB: tablekeeper_judge
+      POSTGRES_USER: postgres
+      # Deliberately non-secret credentials for this isolated disposable stack.
+      POSTGRES_PASSWORD: tablekeeper_judge_only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tablekeeper_judge"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    volumes:
+      - judge_postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      TK_JUDGE_BOOTSTRAP_DATABASE_URL: postgresql://postgres:tablekeeper_judge_only@postgres:5432/tablekeeper_judge
+      RESERVATION_CORE_DATABASE_URL: postgresql://core_runtime:tablekeeper_runtime_only@postgres:5432/tablekeeper_judge
+      RESERVATION_CORE_CONFIRMATION_SECRET: dGFibGVrZWVwZXItanVkZ2Utb25seS1jb25maXJtYXRpb24tc2VjcmV0
+      RESERVATION_CORE_DEV_BEARER_TOKEN: tablekeeper-judge-guest-token
+      RESERVATION_CORE_MANAGER_BEARER_TOKEN: tablekeeper-judge-manager-token
+      RESERVATION_CORE_TENANT_ID: 10000000-0000-4000-8000-000000000001
+      RESERVATION_CORE_ACTOR_ID: judge-guest
+      RESERVATION_CORE_ACTOR_TYPE: GUEST
+      RESERVATION_CORE_MANAGER_ACTOR_ID: judge-manager
+      RESERVATION_CORE_OPERATIONS_VENUE_ID: 10000000-0000-4000-8000-000000000012
+      RESERVATION_CORE_BASE_URL: http://127.0.0.1:4180
+      CONCIERGE_BASE_URL: http://127.0.0.1:4310
+      CONCIERGE_LANGUAGE_PROVIDER: deterministic
+      CONCIERGE_RETRIEVAL_PROVIDER: local
+      TABLEKEEPER_STAFF_PIN: "2468"
+      PORT: "4173"
+    ports:
+      - "4173:4173"
+    healthcheck:
+      test: ["CMD", "node", "/app/container/healthcheck.mjs"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  judge_postgres_data:
+

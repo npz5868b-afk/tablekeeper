@@ -1,0 +1,9 @@
+{
+  "expectedDatabase": "tablekeeper",
+  "tenantId": "10000000-0000-4000-8000-000000000001",
+  "guestActorId": "local-demo-guest",
+  "managerActorId": "local-demo-manager",
+  "operationsVenueId": "10000000-0000-4000-8000-000000000012",
+  "guestUrl": "http://127.0.0.1:4173/",
+  "staffUrl": "http://127.0.0.1:4173/staff-access"
+}
